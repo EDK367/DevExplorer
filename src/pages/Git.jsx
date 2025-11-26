@@ -389,7 +389,7 @@ git stash pop
 
             <style>{`
         .gradient-text {
-          background: linear-gradient(to right, #f97316, #ea580c);
+          background: linear-gradient(to right, #6366f1, #8b5cf6);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }

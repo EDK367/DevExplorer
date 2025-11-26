@@ -2,10 +2,45 @@
     "nav": {
         "home": "Home",
         "microservices": "Microservices",
+        "java": "Java",
         "springBoot": "Spring Boot",
         "dockerK8s": "Docker & K8s",
         "databases": "Databases",
-        "fedora": "Fedora OS"
+        "fedora": "Fedora"
+    },
+    "java": {
+        "subtitle": "The foundation of enterprise software development.",
+        "core": {
+            "title": "Core Concepts",
+            "description": "Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.",
+            "platform": {
+                "title": "Platform Independent",
+                "content": "Write Once, Run Anywhere (WORA) capability via the Java Virtual Machine (JVM)."
+            },
+            "memory": {
+                "title": "Memory Management",
+                "content": "Automatic garbage collection handles memory allocation and deallocation."
+            }
+        },
+        "oop": {
+            "title": "Object-Oriented Programming",
+            "encapsulation": {
+                "title": "Encapsulation",
+                "content": "Bundling data and methods that operate on that data within a single unit."
+            },
+            "inheritance": {
+                "title": "Inheritance",
+                "content": "Mechanism where a new class derives properties and characteristics from an existing class."
+            },
+            "polymorphism": {
+                "title": "Polymorphism",
+                "content": "Ability of an object to take on many forms, allowing for flexible and reusable code."
+            }
+        },
+        "streams": {
+            "title": "Streams API",
+            "description": "Process sequences of elements declaratively with functional-style operations."
+        }
     },
     "home": {
         "welcome": "Welcome to",

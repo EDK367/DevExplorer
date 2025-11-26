@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import {
+  Coffee,
   Server,
   Database,
   Container,
@@ -22,6 +23,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
   const navItems = [
     { path: '/', label: t('nav.home'), icon: Home },
     { path: '/microservices', label: t('nav.microservices'), icon: Server },
+    { path: '/java', label: t('nav.java'), icon: Coffee },
     { path: '/spring-boot', label: t('nav.springBoot'), icon: Box },
     { path: '/docker', label: 'Docker', icon: Container },
     { path: '/kubernetes', label: 'Kubernetes', icon: Box },

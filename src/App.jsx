@@ -12,6 +12,8 @@ import { Fedora } from './pages/Fedora';
 import { Git } from './pages/Git';
 import { GitHub } from './pages/GitHub';
 
+import { Java } from './pages/Java';
+
 const Home = () => (
   <div className="home-container">
     <h1 className="text-5xl font-bold mb-6">Welcome to <span className="gradient-text">DevExplorer</span></h1>
@@ -45,6 +47,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="microservices" element={<Microservices />} />
+        <Route path="java" element={<Java />} />
         <Route path="spring-boot" element={<SpringBoot />} />
         <Route path="docker" element={<Docker />} />
         <Route path="kubernetes" element={<Kubernetes />} />

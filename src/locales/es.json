@@ -2,10 +2,45 @@
     "nav": {
         "home": "Inicio",
         "microservices": "Microservicios",
+        "java": "Java",
         "springBoot": "Spring Boot",
         "dockerK8s": "Docker y K8s",
         "databases": "Bases de Datos",
-        "fedora": "Fedora OS"
+        "fedora": "Fedora"
+    },
+    "java": {
+        "subtitle": "La base del desarrollo de software empresarial.",
+        "core": {
+            "title": "Conceptos Principales",
+            "description": "Java es un lenguaje de programación de alto nivel, basado en clases y orientado a objetos, diseñado para tener la menor cantidad posible de dependencias de implementación.",
+            "platform": {
+                "title": "Independiente de Plataforma",
+                "content": "Capacidad de 'Escribir una vez, ejecutar en cualquier lugar' (WORA) a través de la Máquina Virtual Java (JVM)."
+            },
+            "memory": {
+                "title": "Gestión de Memoria",
+                "content": "La recolección de basura automática maneja la asignación y desasignación de memoria."
+            }
+        },
+        "oop": {
+            "title": "Programación Orientada a Objetos",
+            "encapsulation": {
+                "title": "Encapsulamiento",
+                "content": "Agrupar datos y métodos que operan sobre esos datos dentro de una unidad única."
+            },
+            "inheritance": {
+                "title": "Herencia",
+                "content": "Mecanismo donde una nueva clase deriva propiedades y características de una clase existente."
+            },
+            "polymorphism": {
+                "title": "Polimorfismo",
+                "content": "Capacidad de un objeto de tomar muchas formas, permitiendo código flexible y reutilizable."
+            }
+        },
+        "streams": {
+            "title": "API de Streams",
+            "description": "Procesa secuencias de elementos de forma declarativa con operaciones de estilo funcional."
+        }
     },
     "home": {
         "welcome": "Bienvenido a",
