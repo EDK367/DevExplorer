@@ -1,0 +1,315 @@
+{
+    "nav": {
+        "home": "Home",
+        "microservices": "Microservices",
+        "springBoot": "Spring Boot",
+        "dockerK8s": "Docker & K8s",
+        "databases": "Databases",
+        "fedora": "Fedora OS"
+    },
+    "home": {
+        "welcome": "Welcome to",
+        "subtitle": "Your interactive journey into the world of modern software engineering.",
+        "cards": {
+            "microservices": "Decouple your architecture.",
+            "cloudNative": "Docker & Kubernetes mastery.",
+            "modernData": "SQL & NoSQL paradigms."
+        }
+    },
+    "microservices": {
+        "title": "Microservices Architecture",
+        "subtitle": "Decoupling applications into small, independent services.",
+        "whatIs": {
+            "title": "What are Microservices?",
+            "content": "Microservices architecture is an approach to building a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API."
+        },
+        "features": {
+            "deployable": "Independently deployable",
+            "maintainable": "Highly maintainable and testable",
+            "organized": "Organized around business capabilities"
+        },
+        "monolith": {
+            "title": "Monolith vs Microservices",
+            "monolithLabel": "Monolith",
+            "serviceLabel": "Service"
+        },
+        "characteristics": {
+            "title": "Key Characteristics",
+            "decentralized": {
+                "title": "Decentralized Data",
+                "content": "Each service manages its own database, ensuring loose coupling but requiring eventual consistency patterns."
+            },
+            "smartEndpoints": {
+                "title": "Smart Endpoints",
+                "content": "Services communicate via simple REST APIs or messaging queues (RabbitMQ, Kafka), keeping logic in the services, not the pipes."
+            },
+            "automated": {
+                "title": "Automated Deployment",
+                "content": "Requires robust CI/CD pipelines to manage the complexity of deploying multiple services."
+            }
+        },
+        "patterns": {
+            "title": "Advanced Patterns",
+            "gateway": {
+                "title": "API Gateway",
+                "content": "A server that is the single entry point into the system. It encapsulates the internal system architecture and provides an API that is tailored to each client."
+            },
+            "circuitBreaker": {
+                "title": "Circuit Breaker",
+                "content": "Prevents an application from repeatedly trying to execute an operation that's likely to fail. Essential for resilience in distributed systems."
+            },
+            "discovery": {
+                "title": "Service Discovery",
+                "content": "Automatic detection of devices and services offered by these devices on a computer network. Tools like Eureka or Consul are commonly used."
+            }
+        }
+    },
+    "springBoot": {
+        "title": "Java Spring Boot",
+        "subtitle": "Production-grade Spring based Applications.",
+        "features": {
+            "opinionated": {
+                "title": "Opinionated",
+                "content": "It takes an opinionated view of the Spring platform and third-party libraries so you can get started with minimum fuss."
+            },
+            "standalone": {
+                "title": "Standalone",
+                "content": "Create stand-alone Spring applications that you can just run (embedded Tomcat, Jetty, or Undertow)."
+            },
+            "production": {
+                "title": "Production Ready",
+                "content": "Provides production-ready features such as metrics, health checks, and externalized configuration."
+            }
+        },
+        "quickStart": {
+            "title": "Quick Start",
+            "desc": "A simple REST Controller in Spring Boot."
+        },
+        "entryPoint": {
+            "title": "The Entry Point",
+            "desc": "Bootstrapping the application is as simple as annotating a class."
+        },
+        "deepDive": {
+            "title": "Deep Dive",
+            "di": {
+                "title": "Dependency Injection",
+                "content": "Spring's core feature. It allows you to decouple the creation of objects from their usage."
+            },
+            "jpa": {
+                "title": "Spring Data JPA",
+                "content": "Makes it easy to implement JPA based repositories. It reduces the boilerplate code required to access data."
+            },
+            "security": {
+                "title": "Spring Security",
+                "content": "A powerful and highly customizable authentication and access-control framework."
+            }
+        }
+    },
+    "dockerK8s": {
+        "title": "Docker & Kubernetes",
+        "subtitle": "Containerization and Orchestration for modern apps.",
+        "docker": {
+            "title": "Docker",
+            "content": "Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime."
+        },
+        "k8s": {
+            "title": "Kubernetes",
+            "content": "Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications."
+        },
+        "terminal": {
+            "title": "Interactive Terminal",
+            "desc": "Try out some common commands directly in the browser.",
+            "welcome": "Welcome to the Interactive Container Lab.",
+            "hint": "Try running \"docker ps\" or \"kubectl get pods\". Type \"help\" for more."
+        },
+        "concepts": {
+            "title": "Key Concepts",
+            "images": {
+                "title": "Images",
+                "content": "A read-only template with instructions for creating a Docker container."
+            },
+            "pods": {
+                "title": "Pods",
+                "content": "The smallest deployable units of computing that you can create and manage in Kubernetes."
+            },
+            "services": {
+                "title": "Services",
+                "content": "An abstract way to expose an application running on a set of Pods as a network service."
+            }
+        },
+        "deepDive": {
+            "title": "Deep Dive",
+            "dockerfile": {
+                "title": "Dockerfile",
+                "content": "A text document that contains all the commands a user could call on the command line to assemble an image."
+            },
+            "compose": {
+                "title": "Docker Compose",
+                "content": "A tool for defining and running multi-container Docker applications."
+            },
+            "architecture": {
+                "title": "K8s Architecture",
+                "content": "Master Node (Control Plane) manages Worker Nodes where Pods run."
+            }
+        }
+    },
+    "databases": {
+        "title": "Databases",
+        "subtitle": "SQL vs NoSQL: Choosing the right tool for the job.",
+        "postgres": {
+            "title": "PostgreSQL (SQL)",
+            "content": "A powerful, open source object-relational database system with over 30 years of active development."
+        },
+        "mongo": {
+            "title": "MongoDB (NoSQL)",
+            "content": "A source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents."
+        },
+        "sqlExample": {
+            "title": "SQL Example",
+            "desc": "Defining a schema and inserting data in PostgreSQL."
+        },
+        "mongoExample": {
+            "title": "NoSQL Example",
+            "desc": "Inserting a document in MongoDB."
+        },
+        "comparison": {
+            "title": "Comparison",
+            "sql": {
+                "title": "Relational (SQL)",
+                "structure": "Structured data",
+                "schema": "Strict schema",
+                "scaling": "Vertical scaling"
+            },
+            "nosql": {
+                "title": "Non-Relational (NoSQL)",
+                "structure": "Unstructured data",
+                "schema": "Flexible schema",
+                "scaling": "Horizontal scaling"
+            }
+        },
+        "deepDive": {
+            "title": "Deep Dive",
+            "acid": {
+                "title": "ACID Properties",
+                "content": "Atomicity, Consistency, Isolation, Durability. Guarantees validity of database transactions."
+            },
+            "cap": {
+                "title": "CAP Theorem",
+                "content": "Consistency, Availability, Partition Tolerance. A distributed data store can only provide two of the three guarantees."
+            },
+            "indexing": {
+                "title": "Indexing",
+                "content": "A data structure technique used to quickly locate and access the data in a database."
+            }
+        },
+        "sqlCard": {
+            "desc": "Relational databases based on structured tables and strict schemas. Ideal for complex relationships and transactional integrity.",
+            "features": {
+                "acid": "ACID Compliance",
+                "scaling": "Vertical Scaling",
+                "joins": "Complex Joins"
+            }
+        },
+        "nosqlCard": {
+            "desc": "Non-relational databases with flexible schemas. Designed for high performance, massive scale, and rapid development.",
+            "features": {
+                "scaling": "Horizontal Scaling",
+                "flexible": "Flexible Schema",
+                "ha": "High Availability"
+            }
+        },
+        "interactive": {
+            "title": "Database Playground",
+            "desc": "Explore database concepts. Try \"help\" to see available commands.",
+            "commands": {
+                "sqlInfo": "Get information about SQL databases",
+                "nosqlInfo": "Get information about NoSQL databases",
+                "listTypes": "List common database types",
+                "help": "Show help"
+            }
+        },
+        "comparisonDetails": {
+            "structure": {
+                "title": "Structure",
+                "sql": "Tables with rows and columns.",
+                "nosql": "Documents, key-values, graphs, or wide-columns."
+            },
+            "schema": {
+                "title": "Schema",
+                "sql": "Rigid. Must be defined before inserting data.",
+                "nosql": "Dynamic. Can change at any time."
+            },
+            "scalability": {
+                "title": "Scalability",
+                "sql": "Vertical (bigger machine).",
+                "nosql": "Horizontal (more machines)."
+            }
+        }
+    },
+    "fedora": {
+        "title": "Fedora Workstation",
+        "subtitle": "The premier open source development platform.",
+        "why": {
+            "title": "Why Fedora?",
+            "content": "Fedora Workstation is a polished, easy to use, and complete operating system for laptops and desktops, with a complete set of tools for developers and makers of all kinds."
+        },
+        "features": {
+            "upstream": {
+                "title": "Upstream First",
+                "content": "Fedora contributes directly to upstream projects. You get the latest features first."
+            },
+            "technologies": {
+                "title": "Leading Edge",
+                "content": "First to adopt new technologies like Wayland, PipeWire, and Btrfs by default."
+            },
+            "containers": {
+                "title": "Container Ready",
+                "content": "Best-in-class support for Podman, Buildah, and Skopeo out of the box."
+            }
+        },
+        "setup": {
+            "title": "Developer Setup",
+            "desc": "Essential commands to get your environment ready."
+        },
+        "deepDive": {
+            "title": "Deep Dive",
+            "systemd": {
+                "title": "Systemd",
+                "content": "A suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system."
+            },
+            "firewall": {
+                "title": "Firewalld",
+                "content": "A firewall management tool that provides a dynamically managed firewall with support for network/firewall zones."
+            },
+            "toolbox": {
+                "title": "Toolbox",
+                "content": "Offers a familiar package-based environment for developing and debugging software that runs fully unprivileged using Podman."
+            }
+        }
+    },
+    "common": {
+        "loading": "Loading...",
+        "copy": "Copy code",
+        "copied": "Copied!"
+    },
+    "docker": {
+        "title": "Docker",
+        "subtitle": "Containerization Mastery",
+        "description": "The complete guide to containerization, from basic concepts to production-grade orchestration."
+    },
+    "kubernetes": {
+        "title": "Kubernetes",
+        "subtitle": "Orchestration",
+        "description": "Scale, manage, and automate your containerized applications with the industry-standard orchestrator."
+    },
+    "git": {
+        "title": "Git",
+        "subtitle": "Version Control",
+        "description": "Master distributed version control with Git - the industry standard for tracking code changes and collaborating with teams."
+    },
+    "github": {
+        "title": "GitHub",
+        "subtitle": "Collaboration",
+        "description": "The world's leading platform for version control and collaboration. Build, ship, and maintain software with millions of developers."
+    }
+}
