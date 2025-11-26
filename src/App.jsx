@@ -36,43 +36,6 @@ const Home = () => (
         <p>SQL & NoSQL paradigms.</p>
       </div>
     </div>
-    <style>{`
-      .home-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 60vh;
-        text-align: center;
-      }
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        width: 100%;
-        max-width: 800px;
-      }
-      .feature-card {
-        padding: 2rem;
-        background: hsla(var(--bg-card) / 0.5);
-        border: 1px solid hsl(var(--border-color));
-        border-radius: var(--radius-md);
-        transition: all 0.3s ease;
-      }
-      .feature-card:hover {
-        transform: translateY(-5px);
-        border-color: hsl(var(--accent-primary));
-        background: hsla(var(--accent-primary) / 0.1);
-      }
-      .feature-card h3 {
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
-        color: hsl(var(--text-primary));
-      }
-      .feature-card p {
-        color: hsl(var(--text-secondary));
-      }
-    `}</style>
   </div>
 );
 
