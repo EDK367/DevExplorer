@@ -11,32 +11,32 @@ import 'prismjs/components/prism-sql';
 import { Copy, Check } from 'lucide-react';
 
 export const CodeBlock = ({ code, language = 'javascript', title }) => {
-    const [copied, setCopied] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
 
-    useEffect(() => {
-        Prism.highlightAll();
-    }, [code, language]);
+  useEffect(() => {
+    Prism.highlightAll();
+  }, [code, language]);
 
-    const handleCopy = () => {
-        navigator.clipboard.writeText(code);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-    };
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-    return (
-        <div className="code-block-wrapper">
-            {title && <div className="code-title">{title}</div>}
-            <div className="code-container">
-                <button className="copy-btn" onClick={handleCopy} title="Copy code">
-                    {copied ? <Check size={16} /> : <Copy size={16} />}
-                </button>
-                <pre className={`language-${language}`}>
-                    <code className={`language-${language}`}>
-                        {code.trim()}
-                    </code>
-                </pre>
-            </div>
-            <style>{`
+  return (
+    <div className="code-block-wrapper">
+      {title && <div className="code-title">{title}</div>}
+      <div className="code-container">
+        <button className="copy-btn" onClick={handleCopy} title="Copy code">
+          {copied ? <Check size={16} /> : <Copy size={16} />}
+        </button>
+        <pre className={`language-${language}`}>
+          <code className={`language-${language}`}>
+            {code.trim()}
+          </code>
+        </pre>
+      </div>
+      <style>{`
         .code-block-wrapper {
           margin: 1.5rem 0;
           border-radius: var(--radius-md);
@@ -78,6 +78,6 @@ export const CodeBlock = ({ code, language = 'javascript', title }) => {
           padding: 1.5rem !important;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };

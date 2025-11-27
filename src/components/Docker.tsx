@@ -16,9 +16,10 @@ interface QuizQuestion {
 interface QuizComponentProps {
     questions: QuizQuestion[];
     onSubmit: (answers: number[]) => void;
+    t: any;
 }
 
-const QuizComponent = ({ questions, onSubmit }: QuizComponentProps) => {
+const QuizComponent = ({ questions, onSubmit, t }: QuizComponentProps) => {
     const [answers, setAnswers] = useState<number[]>(new Array(questions.length).fill(null));
 
     const handleSelect = (qIndex: number, oIndex: number): void => {
@@ -58,7 +59,7 @@ const QuizComponent = ({ questions, onSubmit }: QuizComponentProps) => {
                     : 'bg-secondary text-muted cursor-not-allowed'
                     }`}
             >
-                Submit Answers
+                {t('docker.quiz.submitAnswers')}
             </button>
         </div>
     );
@@ -111,32 +112,32 @@ volumes:
 
     const quizQuestions: QuizQuestion[] = [
         {
-            question: "What is the primary difference between a Docker Image and a Container?",
+            question: t('docker.quiz.questions.0.question'),
             options: [
-                "They are the same thing",
-                "An image is a running instance, a container is the blueprint",
-                "An image is a read-only template, a container is a runnable instance",
-                "Containers are for Linux, Images are for Windows"
+                t('docker.quiz.questions.0.options.0'),
+                t('docker.quiz.questions.0.options.1'),
+                t('docker.quiz.questions.0.options.2'),
+                t('docker.quiz.questions.0.options.3')
             ],
             correct: 2
         },
         {
-            question: "Which command lists all running containers?",
+            question: t('docker.quiz.questions.1.question'),
             options: [
-                "docker images",
-                "docker ps",
-                "docker run",
-                "docker info"
+                t('docker.quiz.questions.1.options.0'),
+                t('docker.quiz.questions.1.options.1'),
+                t('docker.quiz.questions.1.options.2'),
+                t('docker.quiz.questions.1.options.3')
             ],
             correct: 1
         },
         {
-            question: "What is the purpose of a multi-stage build?",
+            question: t('docker.quiz.questions.2.question'),
             options: [
-                "To make the build slower",
-                "To run multiple apps in one container",
-                "To reduce final image size by discarding build dependencies",
-                "To use multiple operating systems"
+                t('docker.quiz.questions.2.options.0'),
+                t('docker.quiz.questions.2.options.1'),
+                t('docker.quiz.questions.2.options.2'),
+                t('docker.quiz.questions.2.options.3')
             ],
             correct: 2
         }
@@ -157,10 +158,10 @@ volumes:
         <div className="page-container max-w-7xl mx-auto px-4 py-8">
             <header className="mb-12 text-center">
                 <h1 className="text-5xl font-bold mb-4">
-                    Docker <span className="gradient-text">Mastery</span>
+                    {t('docker.title')} <span className="gradient-text">{t('docker.mastery')}</span>
                 </h1>
                 <p className="text-xl text-muted max-w-2xl mx-auto">
-                    The complete guide to containerization, from basic concepts to production-grade orchestration.
+                    {t('docker.description')}
                 </p>
             </header>
 
@@ -175,7 +176,7 @@ volumes:
                             : 'bg-card hover:bg-accent/10'
                             }`}
                     >
-                        {tab.charAt(0).toUpperCase() + tab.slice(1).replace('-', ' ')}
+                        {t(`docker.tabs.${tab.replace('-', '')}`)}
                     </button>
                 ))}
             </div>
@@ -185,32 +186,32 @@ volumes:
                     <section>
                         <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                             <Container className="text-accent" />
-                            Core Concepts
+                            {t('docker.sections.coreConcepts')}
                         </h2>
                         <div className="grid md:grid-cols-2 gap-6">
-                            <Card title="What is Docker?" icon={Box}>
-                                Docker is an open platform for developing, shipping, and running applications. It enables you to separate your applications from your infrastructure so you can deliver software quickly.
+                            <Card title={t('docker.sections.whatIsDocker')} icon={Box}>
+                                {t('docker.sections.whatIsDockerDesc')}
                             </Card>
-                            <Card title="Why Containers?" icon={Layers}>
-                                Containers are lightweight, standalone, executable packages of software that include everything needed to run an application: code, runtime, system tools, system libraries and settings.
+                            <Card title={t('docker.sections.whyContainers')} icon={Layers}>
+                                {t('docker.sections.whyContainersDesc')}
                             </Card>
                         </div>
                     </section>
 
                     <section>
-                        <h2 className="text-3xl font-bold mb-6">Images vs Containers</h2>
+                        <h2 className="text-3xl font-bold mb-6">{t('docker.sections.imagesVsContainers')}</h2>
                         <div className="bg-card p-8 rounded-xl border border-border">
                             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                                 <div className="flex-1 text-center">
                                     <div className="w-24 h-24 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                         <FileText size={40} className="text-blue-400" />
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2">Docker Image</h3>
-                                    <p className="text-muted">Read-only template (The Recipe)</p>
+                                    <h3 className="text-xl font-bold mb-2">{t('docker.sections.dockerImage')}</h3>
+                                    <p className="text-muted">{t('docker.sections.dockerImageDesc')}</p>
                                     <ul className="text-left mt-4 space-y-2 text-sm">
-                                        <li>• Built from Dockerfile</li>
-                                        <li>• Layered file system</li>
-                                        <li>• Immutable</li>
+                                        <li>• {t('docker.sections.builtFromDockerfile')}</li>
+                                        <li>• {t('docker.sections.layeredFileSystem')}</li>
+                                        <li>• {t('docker.sections.immutable')}</li>
                                     </ul>
                                 </div>
                                 <div className="text-2xl font-bold text-muted">→</div>
@@ -218,12 +219,12 @@ volumes:
                                     <div className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                         <Box size={40} className="text-green-400" />
                                     </div>
-                                    <h3 className="text-xl font-bold mb-2">Docker Container</h3>
-                                    <p className="text-muted">Runnable Instance (The Cake)</p>
+                                    <h3 className="text-xl font-bold mb-2">{t('docker.sections.dockerContainer')}</h3>
+                                    <p className="text-muted">{t('docker.sections.dockerContainerDesc')}</p>
                                     <ul className="text-left mt-4 space-y-2 text-sm">
-                                        <li>• Created from Image</li>
-                                        <li>• Isolated process</li>
-                                        <li>• Ephemeral (usually)</li>
+                                        <li>• {t('docker.sections.createdFromImage')}</li>
+                                        <li>• {t('docker.sections.isolatedProcess')}</li>
+                                        <li>• {t('docker.sections.ephemeral')}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -377,12 +378,12 @@ volumes:
             {activeTab === 'interactive' && (
                 <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <section>
-                        <h2 className="text-3xl font-bold mb-6">Interactive Terminal</h2>
-                        <p className="mb-4 text-muted">Try running some Docker commands in this simulated environment.</p>
+                        <h2 className="text-3xl font-bold mb-6">{t('docker.sections.interactiveTerminal')}</h2>
+                        <p className="mb-4 text-muted">{t('docker.sections.tryDockerCommands')}</p>
                         <MockTerminal
                             initialOutput={[
-                                "Welcome to the Docker Interactive Shell",
-                                "Try commands like 'docker ps', 'docker images', or 'docker run hello-world'"
+                                t('docker.terminal.welcome'),
+                                t('docker.terminal.hint')
                             ]}
                             commands={{
                                 'docker ps': {
@@ -414,26 +415,26 @@ volumes:
                     </section>
 
                     <section className="max-w-2xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-6 text-center">Knowledge Check</h2>
+                        <h2 className="text-3xl font-bold mb-6 text-center">{t('docker.quiz.knowledgeCheck')}</h2>
                         <div className="bg-card p-8 rounded-xl border border-border">
                             {!showQuizResult ? (
-                                <QuizComponent questions={quizQuestions} onSubmit={handleQuizSubmit} />
+                                <QuizComponent questions={quizQuestions} onSubmit={handleQuizSubmit} t={t} />
                             ) : (
                                 <div className="text-center">
                                     <div className="text-6xl mb-4">{quizScore === quizQuestions.length ? '🏆' : '📝'}</div>
                                     <h3 className="text-2xl font-bold mb-2">
-                                        You scored {quizScore} out of {quizQuestions.length}
+                                        {t('docker.quiz.score', { score: quizScore, total: quizQuestions.length })}
                                     </h3>
                                     <p className="text-muted mb-6">
                                         {quizScore === quizQuestions.length
-                                            ? "Perfect score! You're a Docker master!"
-                                            : "Good effort! Review the sections and try again."}
+                                            ? t('docker.quiz.perfect')
+                                            : t('docker.quiz.goodEffort')}
                                     </p>
                                     <button
                                         onClick={() => setShowQuizResult(false)}
                                         className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-accent/90"
                                     >
-                                        Try Again
+                                        {t('docker.quiz.tryAgain')}
                                     </button>
                                 </div>
                             )}

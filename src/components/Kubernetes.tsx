@@ -13,6 +13,13 @@ export const Kubernetes = () => {
     const [quizScore, setQuizScore] = useState(0);
     const [showQuizResult, setShowQuizResult] = useState(false);
 
+    interface QuizQuestion {
+        question: string;
+        options: string[];
+        correct: number;
+    }
+
+
     const deploymentYaml = `
 apiVersion: apps/v1
 kind: Deployment
@@ -54,34 +61,34 @@ spec:
 
     const quizQuestions = [
         {
-            question: "What is the smallest deployable unit in Kubernetes?",
+            question: t('kubernetes.quiz.questions.0.question'),
             options: [
-                "Container",
-                "Pod",
-                "Node",
-                "Service"
+                t('kubernetes.quiz.questions.0.options.0'),
+                t('kubernetes.quiz.questions.0.options.1'),
+                t('kubernetes.quiz.questions.0.options.2'),
+                t('kubernetes.quiz.questions.0.options.3')
             ],
             correct: 1
         },
         {
-            question: "Which component ensures a specified number of pod replicas are running?",
+            question: t('kubernetes.quiz.questions.1.question'),
             options: [
-                "Kubelet",
-                "ReplicaSet (managed by Deployment)",
-                "Scheduler",
-                "Etcd"
+                t('kubernetes.quiz.questions.1.options.0'),
+                t('kubernetes.quiz.questions.1.options.1'),
+                t('kubernetes.quiz.questions.1.options.2'),
+                t('kubernetes.quiz.questions.1.options.3')
             ],
             correct: 1
         },
         {
-            question: "How do you expose an application running on a set of Pods?",
+            question: t('kubernetes.quiz.questions.2.question'),
             options: [
-                "Using a Service",
-                "Using a Volume",
-                "Using a ConfigMap",
-                "Using a Secret"
+                t('kubernetes.quiz.questions.2.options.0'),
+                t('kubernetes.quiz.questions.2.options.1'),
+                t('kubernetes.quiz.questions.2.options.2'),
+                t('kubernetes.quiz.questions.2.options.3')
             ],
-            correct: 0
+            correct: 2
         }
     ];
 
@@ -98,10 +105,10 @@ spec:
         <div className="page-container max-w-7xl mx-auto px-4 py-8">
             <header className="mb-12 text-center">
                 <h1 className="text-5xl font-bold mb-4">
-                    Kubernetes <span className="gradient-text">Orchestration</span>
+                    {t('kubernetes.title')} <span className="gradient-text">{t('kubernetes.orchestration')}</span>
                 </h1>
                 <p className="text-xl text-muted max-w-2xl mx-auto">
-                    Scale, manage, and automate your containerized applications with the industry standard orchestrator.
+                    {t('kubernetes.description')}
                 </p>
             </header>
 
@@ -116,7 +123,7 @@ spec:
                             : 'bg-card hover:bg-accent/10'
                             }`}
                     >
-                        {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                        {t(`kubernetes.tabs.${tab}`)}
                     </button>
                 ))}
             </div>
@@ -126,17 +133,17 @@ spec:
                     <section>
                         <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                             <Ship className="text-accent" />
-                            Core Concepts
+                            {t('kubernetes.sections.coreConcepts')}
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
-                            <Card title="Pod" icon={Box}>
-                                The smallest deployable unit. A Pod represents a single instance of a running process in your cluster. It can contain one or more containers.
+                            <Card title={t('kubernetes.sections.pods')} icon={Box}>
+                                {t('kubernetes.sections.podsDesc')}
                             </Card>
-                            <Card title="Node" icon={Server}>
-                                A worker machine in Kubernetes. A node may be a VM or physical machine, depending on the cluster. Each node is managed by the Control Plane.
+                            <Card title={t('kubernetes.sections.workerNodes')} icon={Server}>
+                                {t('kubernetes.sections.workerNodesDesc')}
                             </Card>
-                            <Card title="Cluster" icon={Activity}>
-                                A set of node machines for running containerized applications. If you're running Kubernetes, you're running a cluster.
+                            <Card title={t('kubernetes.sections.clusterArchitecture')} icon={Activity}>
+                                {t('kubernetes.sections.controlPlaneDesc')}
                             </Card>
                         </div>
                     </section>
@@ -293,12 +300,12 @@ spec:
             {activeTab === 'interactive' && (
                 <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <section>
-                        <h2 className="text-3xl font-bold mb-6">kubectl Playground</h2>
-                        <p className="mb-4 text-muted">Practice your kubectl commands in this simulated environment.</p>
+                        <h2 className="text-3xl font-bold mb-6">{t('kubernetes.sections.kubectlPlayground')}</h2>
+                        <p className="mb-4 text-muted">{t('kubernetes.sections.practiceKubectl')}</p>
                         <MockTerminal
                             initialOutput={[
-                                "Welcome to the Kubernetes Interactive Shell",
-                                "Try commands like 'kubectl get pods', 'kubectl get nodes', or 'kubectl cluster-info'"
+                                t('kubernetes.terminal.welcome'),
+                                t('kubernetes.terminal.hint')
                             ]}
                             commands={{
                                 'kubectl get pods': {
@@ -330,26 +337,26 @@ spec:
                     </section>
 
                     <section className="max-w-2xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-6 text-center">Knowledge Check</h2>
+                        <h2 className="text-3xl font-bold mb-6 text-center">{t('kubernetes.quiz.knowledgeCheck')}</h2>
                         <div className="bg-card p-8 rounded-xl border border-border">
                             {!showQuizResult ? (
-                                <QuizComponent questions={quizQuestions} onSubmit={handleQuizSubmit} />
+                                <QuizComponent questions={quizQuestions} onSubmit={handleQuizSubmit} t={t} />
                             ) : (
                                 <div className="text-center">
                                     <div className="text-6xl mb-4">{quizScore === quizQuestions.length ? '🏆' : '📝'}</div>
                                     <h3 className="text-2xl font-bold mb-2">
-                                        You scored {quizScore} out of {quizQuestions.length}
+                                        {t('kubernetes.quiz.score', { score: quizScore, total: quizQuestions.length })}
                                     </h3>
                                     <p className="text-muted mb-6">
                                         {quizScore === quizQuestions.length
-                                            ? "Excellent! You're ready to orchestrate!"
-                                            : "Good try! Review the concepts and try again."}
+                                            ? t('kubernetes.quiz.excellent')
+                                            : t('kubernetes.quiz.goodTry')}
                                     </p>
                                     <button
                                         onClick={() => setShowQuizResult(false)}
                                         className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-accent/90"
                                     >
-                                        Try Again
+                                        {t('kubernetes.quiz.tryAgain')}
                                     </button>
                                 </div>
                             )}
@@ -370,7 +377,13 @@ spec:
 };
 
 // Helper components for the file
-const QuizComponent = ({ questions, onSubmit }) => {
+interface QuizComponentProps {
+    questions: QuizQuestion[];
+    onSubmit: (answers: number[]) => void;
+    t: any;
+}
+
+const QuizComponent = ({ questions, onSubmit, t }: QuizComponentProps) => {
     const [answers, setAnswers] = useState(new Array(questions.length).fill(null));
 
     const handleSelect = (qIndex, oIndex) => {
@@ -410,7 +423,7 @@ const QuizComponent = ({ questions, onSubmit }) => {
                     : 'bg-secondary text-muted cursor-not-allowed'
                     }`}
             >
-                Submit Answers
+                {t('kubernetes.quiz.submitAnswers')}
             </button>
         </div>
     );

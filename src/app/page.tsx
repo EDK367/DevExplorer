@@ -8,31 +8,31 @@ export default function Home() {
   return (
     <div className="home-container">
       <h1 className="text-5xl font-bold mb-6">
-        Welcome to <span className="gradient-text">DevExplorer</span>
+        {t('home.welcome')} <span className="gradient-text">DevExplorer</span>
       </h1>
       <p className="text-xl text-muted mb-8">
-        Your interactive journey into the world of modern software engineering.
+        {t('home.subtitle')}
       </p>
       <div className="features-grid">
         <div className='feature-card'>
           <h3>Java</h3>
-          <p>Programming language.</p>
+          <p>{t('home.cards.java')}.</p>
         </div>
         <div className="feature-card">
           <h3>Microservices</h3>
-          <p>Decouple your architecture.</p>
+          <p>{t('home.cards.microservices')}.</p>
         </div>
         <div className="feature-card">
           <h3>Docker</h3>
-          <p>Containerize everything.</p>
+          <p>{t('home.cards.docker')}.</p>
         </div>
         <div className="feature-card">
           <h3>Kubernetes</h3>
-          <p>Orchestrate at scale.</p>
+          <p>{t('home.cards.k8s')}.</p>
         </div>
         <div className="feature-card">
-          <h3>Modern Data</h3>
-          <p>SQL & NoSQL paradigms.</p>
+          <h3>{t('home.title-cards.databases')}</h3>
+          <p>{t('home.cards.databases')}.</p>
         </div>
       
       </div>

@@ -13,6 +13,13 @@ export const Git = () => {
     const [quizScore, setQuizScore] = useState(0);
     const [showQuizResult, setShowQuizResult] = useState(false);
 
+    interface QuizQuestion {
+        question: string;
+        options: string[];
+        correct: number;
+    }
+
+
     const basicCommands = `
 # Initialize a repository
 git init
@@ -75,32 +82,32 @@ git stash pop
 
     const quizQuestions = [
         {
-            question: "What command stages all changes for commit?",
+            question: t('git.quiz.questions.0.question'),
             options: [
-                "git commit -a",
-                "git add .",
-                "git stage all",
-                "git push"
+                t('git.quiz.questions.0.options.0'),
+                t('git.quiz.questions.0.options.1'),
+                t('git.quiz.questions.0.options.2'),
+                t('git.quiz.questions.0.options.3')
             ],
             correct: 1
         },
         {
-            question: "How do you create and switch to a new branch in one command?",
+            question: t('git.quiz.questions.1.question'),
             options: [
-                "git branch -new feature",
-                "git switch feature",
-                "git checkout -b feature",
-                "git create feature"
+                t('git.quiz.questions.1.options.0'),
+                t('git.quiz.questions.1.options.1'),
+                t('git.quiz.questions.1.options.2'),
+                t('git.quiz.questions.1.options.3')
             ],
             correct: 2
         },
         {
-            question: "What does 'git rebase' do?",
+            question: t('git.quiz.questions.2.question'),
             options: [
-                "Deletes all commits",
-                "Reapplies commits on top of another base tip",
-                "Creates a new repository",
-                "Merges two branches"
+                t('git.quiz.questions.2.options.0'),
+                t('git.quiz.questions.2.options.1'),
+                t('git.quiz.questions.2.options.2'),
+                t('git.quiz.questions.2.options.3')
             ],
             correct: 1
         }
@@ -119,10 +126,10 @@ git stash pop
         <div className="page-container max-w-7xl mx-auto px-4 py-8">
             <header className="mb-12 text-center">
                 <h1 className="text-5xl font-bold mb-4">
-                    Git <span className="gradient-text">Version Control</span>
+                    {t('git.title')} <span className="gradient-text">{t('git.subtitle')}</span>
                 </h1>
                 <p className="text-xl text-muted max-w-2xl mx-auto">
-                    Master distributed version control with Git - the industry standard for tracking code changes and collaborating with teams.
+                    {t('git.description')}
                 </p>
             </header>
 
@@ -137,7 +144,7 @@ git stash pop
                             : 'bg-card hover:bg-accent/10'
                             }`}
                     >
-                        {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                        {t(`git.tabs.${tab}`)}
                     </button>
                 ))}
             </div>
@@ -147,17 +154,17 @@ git stash pop
                     <section>
                         <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                             <GitCommit className="text-accent" />
-                            Core Concepts
+                            {t('git.tabs.basics')}
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
-                            <Card title="Repository" icon={Database}>
-                                A Git repository is a virtual storage of your project. It allows you to save versions of your code, which you can access when needed.
+                            <Card title={t('git.sections.repository')} icon={Database}>
+                                {t('git.sections.repositoryDesc')}
                             </Card>
-                            <Card title="Commit" icon={GitCommit}>
-                                A commit is a snapshot of your repository at a specific point in time. Each commit has a unique SHA hash identifier.
+                            <Card title={t('git.sections.commit')} icon={GitCommit}>
+                                {t('git.sections.commitDesc')}
                             </Card>
-                            <Card title="Branch" icon={GitBranch}>
-                                A branch is a parallel version of your repository. It allows you to work on different features without affecting the main codebase.
+                            <Card title={t('git.sections.branch')} icon={GitBranch}>
+                                {t('git.sections.branchDesc')}
                             </Card>
                         </div>
                     </section>
@@ -171,7 +178,7 @@ git stash pop
                                         <FileText size={40} className="text-red-400" />
                                     </div>
                                     <h3 className="text-xl font-bold mb-2">Working Directory</h3>
-                                    <p className="text-muted text-sm">Modified files not yet staged</p>
+                                    <p className="text-muted text-sm">{t('git.title-card.working-directory')}</p>
                                 </div>
                                 <ArrowRight className="hidden md:block text-muted" />
                                 <div className="flex-1 text-center">
@@ -179,7 +186,7 @@ git stash pop
                                         <Box size={40} className="text-yellow-400" />
                                     </div>
                                     <h3 className="text-xl font-bold mb-2">Staging Area</h3>
-                                    <p className="text-muted text-sm">Files ready to be committed</p>
+                                    <p className="text-muted text-sm">{t('git.title-card.staging-area')}</p>
                                 </div>
                                 <ArrowRight className="hidden md:block text-muted" />
                                 <div className="flex-1 text-center">
@@ -187,7 +194,7 @@ git stash pop
                                         <Database size={40} className="text-green-400" />
                                     </div>
                                     <h3 className="text-xl font-bold mb-2">Repository</h3>
-                                    <p className="text-muted text-sm">Committed snapshots</p>
+                                    <p className="text-muted text-sm">{t('git.title-card.repository')}</p>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +212,7 @@ git stash pop
                     <section>
                         <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                             <GitBranch className="text-accent" />
-                            Branching & Merging
+                            {t('git.title-card.branching')}
                         </h2>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
@@ -227,7 +234,7 @@ git stash pop
                     <section>
                         <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                             <GitMerge className="text-accent" />
-                            Merge Strategies
+                            {t('git.title-card.merge-strategies')}
                         </h2>
                         <div className="grid md:grid-cols-2 gap-6">
                             <Card title="Fast-Forward Merge" icon={ArrowRight}>
@@ -246,7 +253,7 @@ git stash pop
                     <section>
                         <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                             <History className="text-accent" />
-                            Advanced Techniques
+                            {t('git.title-card.advanced-techniques')}
                         </h2>
                         <CodeBlock title="advanced-git.sh" language="bash" code={advancedCommands} />
                     </section>
@@ -276,38 +283,38 @@ git stash pop
                             <div className="bg-card p-6 rounded-xl border border-border">
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                                     <GitBranch className="text-accent" />
-                                    Feature Branch Workflow
+                                    {t('git.title-card.feature-branch-workflow')}
                                 </h3>
-                                <p className="mb-4 text-muted">All feature development takes place in a dedicated branch instead of the main branch.</p>
+                                <p className="mb-4 text-muted">{t('git.title-card.feature-branch-workflow-description')}</p>
                                 <ol className="list-decimal list-inside space-y-2 text-sm">
-                                    <li>Create a new branch from main</li>
-                                    <li>Make commits on the feature branch</li>
-                                    <li>Push the feature branch to remote</li>
-                                    <li>Open a pull request</li>
-                                    <li>Merge after code review</li>
+                                    <li>{t('git.title-card.feature-branch-workflow-create-branch')}</li>
+                                    <li>{t('git.title-card.feature-branch-workflow-make-commits')}</li>
+                                    <li>{t('git.title-card.feature-branch-workflow-push-branch')}</li>
+                                    <li>{t('git.title-card.feature-branch-workflow-open-pull-request')}</li>
+                                    <li>{t('git.title-card.feature-branch-workflow-merge-after-code-review')}</li>
                                 </ol>
                             </div>
 
                             <div className="bg-card p-6 rounded-xl border border-border">
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                                     <GitMerge className="text-accent" />
-                                    Gitflow Workflow
+                                    {t('git.title-card.gitflow-workflow')}
                                 </h3>
-                                <p className="mb-4 text-muted">A strict branching model designed around project releases.</p>
+                                <p className="mb-4 text-muted">{t('git.title-card.gitflow-workflow-description')}</p>
                                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                                     <div>
                                         <strong>Main Branches:</strong>
                                         <ul className="list-disc list-inside mt-2">
-                                            <li>main (production)</li>
-                                            <li>develop (integration)</li>
+                                            <li>{t('git.title-card.gitflow-workflow-main-branches-main')}</li>
+                                            <li>{t('git.title-card.gitflow-workflow-main-branches-develop')}</li>
                                         </ul>
                                     </div>
                                     <div>
                                         <strong>Supporting Branches:</strong>
                                         <ul className="list-disc list-inside mt-2">
-                                            <li>feature/*</li>
-                                            <li>release/*</li>
-                                            <li>hotfix/*</li>
+                                            <li>{t('git.title-card.gitflow-workflow-supporting-branches-feature')}</li>
+                                            <li>{t('git.title-card.gitflow-workflow-supporting-branches-release')}</li>
+                                            <li>{t('git.title-card.gitflow-workflow-supporting-branches-hotfix')}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -320,12 +327,12 @@ git stash pop
             {activeTab === 'interactive' && (
                 <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <section>
-                        <h2 className="text-3xl font-bold mb-6">Git Command Playground</h2>
-                        <p className="mb-4 text-muted">Practice your Git commands in this simulated environment.</p>
+                        <h2 className="text-3xl font-bold mb-6">{t('git.sections.gitCommandPlayground')}</h2>
+                        <p className="mb-4 text-muted">{t('git.sections.gitCommandPlayground')}</p>
                         <MockTerminal
                             initialOutput={[
-                                "Welcome to the Git Interactive Shell",
-                                "Try commands like 'git status', 'git log', or 'git branch'"
+                                t('git.terminal.welcome'),
+                                t('git.terminal.hint')
                             ]}
                             commands={{
                                 'git init': {
@@ -361,26 +368,26 @@ git stash pop
                     </section>
 
                     <section className="max-w-2xl mx-auto">
-                        <h2 className="text-3xl font-bold mb-6 text-center">Knowledge Check</h2>
+                        <h2 className="text-3xl font-bold mb-6 text-center">{t('git.quiz.knowledgeCheck')}</h2>
                         <div className="bg-card p-8 rounded-xl border border-border">
                             {!showQuizResult ? (
-                                <QuizComponent questions={quizQuestions} onSubmit={handleQuizSubmit} />
+                                <QuizComponent questions={quizQuestions} onSubmit={handleQuizSubmit} t={t} />
                             ) : (
                                 <div className="text-center">
                                     <div className="text-6xl mb-4">{quizScore === quizQuestions.length ? '🏆' : '📝'}</div>
                                     <h3 className="text-2xl font-bold mb-2">
-                                        You scored {quizScore} out of {quizQuestions.length}
+                                        {t('git.quiz.score', { score: quizScore, total: quizQuestions.length })}
                                     </h3>
                                     <p className="text-muted mb-6">
                                         {quizScore === quizQuestions.length
-                                            ? "Perfect! You're a Git master!"
-                                            : "Good effort! Review the sections and try again."}
+                                            ? t('git.quiz.perfect')
+                                            : t('git.quiz.goodEffort')}
                                     </p>
                                     <button
                                         onClick={() => setShowQuizResult(false)}
                                         className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-accent/90"
                                     >
-                                        Try Again
+                                        {t('git.quiz.tryAgain')}
                                     </button>
                                 </div>
                             )}
@@ -401,7 +408,13 @@ git stash pop
 };
 
 // Helper components
-const QuizComponent = ({ questions, onSubmit }) => {
+interface QuizComponentProps {
+    questions: QuizQuestion[];
+    onSubmit: (answers: number[]) => void;
+    t: any;
+}
+
+const QuizComponent = ({ questions, onSubmit, t }: QuizComponentProps) => {
     const [answers, setAnswers] = useState(new Array(questions.length).fill(null));
 
     const handleSelect = (qIndex, oIndex) => {
@@ -441,7 +454,7 @@ const QuizComponent = ({ questions, onSubmit }) => {
                     : 'bg-secondary text-muted cursor-not-allowed'
                     }`}
             >
-                Submit Answers
+                {t('git.quiz.submitAnswers')}
             </button>
         </div>
     );

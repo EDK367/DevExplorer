@@ -1,0 +1,882 @@
+{
+    "home": {
+        "welcome": "Bienvenido a ",
+        "subtitle": "Tu viaje interactivo al mundo de la ingeniería de software moderna.",
+        "cards": {
+            "java": "Lenguaje de programación",
+            "microservices": "Desacopla tu arquitectura.",
+            "docker": "Contenedorización.",
+            "k8s": "Orquestación de Contenedores.",
+            "databases": "Paradigmas SQL y NoSQL."
+        },
+        "title-cards": {
+            "java": "Java",
+            "microservices": "Microservicios",
+            "docker": "Docker",
+            "k8s": "Kubernetes",
+            "databases": "Bases de Datos"
+        }
+    },
+    "nav": {
+        "home": "Inicio",
+        "microservices": "Microservicios",
+        "java": "Java",
+        "springBoot": "Spring Boot",
+        "dockerK8s": "Docker y K8s",
+        "docker": "Docker",
+        "kubernetes": "Kubernetes",
+        "git": "Git",
+        "github": "GitHub",
+        "databases": "Bases de Datos",
+        "sql": "SQL",
+        "nosql": "NoSQL",
+        "fedora": "Fedora"
+    },
+    "java": {
+        "subtitle": "La base del desarrollo de software empresarial.",
+        "core": {
+            "title": "Conceptos Principales",
+            "description": "Java es un lenguaje de programación de alto nivel, basado en clases y orientado a objetos, diseñado para tener la menor cantidad posible de dependencias de implementación.",
+            "platform": {
+                "title": "Independiente de Plataforma",
+                "content": "Capacidad de 'Escribir una vez, ejecutar en cualquier lugar' (WORA) a través de la Máquina Virtual Java (JVM)."
+            },
+            "memory": {
+                "title": "Gestión de Memoria",
+                "content": "La recolección de basura automática maneja la asignación y desasignación de memoria."
+            }
+        },
+        "oop": {
+            "title": "Programación Orientada a Objetos",
+            "encapsulation": {
+                "title": "Encapsulamiento",
+                "content": "Agrupar datos y métodos que operan sobre esos datos dentro de una unidad única."
+            },
+            "inheritance": {
+                "title": "Herencia",
+                "content": "Mecanismo donde una nueva clase deriva propiedades y características de una clase existente."
+            },
+            "polymorphism": {
+                "title": "Polimorfismo",
+                "content": "Capacidad de un objeto de tomar muchas formas, permitiendo código flexible y reutilizable."
+            }
+        },
+        "streams": {
+            "title": "API de Streams",
+            "description": "Procesa secuencias de elementos de forma declarativa con operaciones de estilo funcional."
+        }
+    },
+    "microservices": {
+        "title": "Arquitectura de Microservicios",
+        "subtitle": "Desacoplando aplicaciones en servicios pequeños e independientes.",
+        "whatIs": {
+            "title": "¿Qué son los Microservicios?",
+            "content": "La arquitectura de microservicios es un enfoque para desarrollar una aplicación única como un conjunto de pequeños servicios, cada uno ejecutándose en su propio proceso y comunicándose con mecanismos ligeros, a menudo una API de recursos HTTP."
+        },
+        "features": {
+            "deployable": "Desplegables independientemente",
+            "maintainable": "Altamente mantenibles y testeables",
+            "organized": "Organizados en torno a capacidades de negocio"
+        },
+        "monolith": {
+            "title": "Monolito vs Microservicios",
+            "monolithLabel": "Monolito",
+            "serviceLabel": "Servicio"
+        },
+        "characteristics": {
+            "title": "Características Clave",
+            "decentralized": {
+                "title": "Datos Descentralizados",
+                "content": "Cada servicio gestiona su propia base de datos, asegurando un acoplamiento débil pero requiriendo patrones de consistencia eventual."
+            },
+            "smartEndpoints": {
+                "title": "Endpoints Inteligentes",
+                "content": "Los servicios se comunican a través de APIs REST simples o colas de mensajería (RabbitMQ, Kafka), manteniendo la lógica en los servicios, no en las tuberías."
+            },
+            "automated": {
+                "title": "Despliegue Automatizado",
+                "content": "Requiere pipelines de CI/CD robustos para gestionar la complejidad de desplegar múltiples servicios."
+            }
+        },
+        "patterns": {
+            "title": "Patrones Avanzados",
+            "gateway": {
+                "title": "API Gateway",
+                "content": "Un servidor que es el único punto de entrada al sistema. Encapsula la arquitectura interna del sistema y proporciona una API adaptada a cada cliente."
+            },
+            "circuitBreaker": {
+                "title": "Circuit Breaker",
+                "content": "Evita que una aplicación intente repetidamente ejecutar una operación que es probable que falle. Esencial para la resiliencia en sistemas distribuidos."
+            },
+            "discovery": {
+                "title": "Descubrimiento de Servicios",
+                "content": "Detección automática de dispositivos y servicios ofrecidos por estos dispositivos en una red informática. Herramientas como Eureka o Consul son comúnmente usadas."
+            }
+        }
+    },
+    "springBoot": {
+        "title": "Java Spring Boot",
+        "subtitle": "Aplicaciones Spring listas para producción.",
+        "features": {
+            "opinionated": {
+                "title": "Opinion",
+                "content": "Adopta una visión opinada de la plataforma Spring y bibliotecas de terceros para que puedas empezar con el mínimo esfuerzo."
+            },
+            "standalone": {
+                "title": "Autónomo",
+                "content": "Crea aplicaciones Spring independientes que puedes ejecutar directamente (Tomcat, Jetty o Undertow integrados)."
+            },
+            "production": {
+                "title": "Listo para Producción",
+                "content": "Proporciona características listas para producción como métricas, comprobaciones de salud y configuración externalizada."
+            }
+        },
+        "quickStart": {
+            "title": "Inicio Rápido",
+            "desc": "Un controlador REST simple en Spring Boot."
+        },
+        "entryPoint": {
+            "title": "El Punto de Entrada",
+            "desc": "Arrancar la aplicación es tan simple como anotar una clase."
+        },
+        "deepDive": {
+            "title": "Profundización",
+            "di": {
+                "title": "Inyección de Dependencias",
+                "content": "La característica central de Spring. Te permite desacoplar la creación de objetos de su uso."
+            },
+            "jpa": {
+                "title": "Spring Data JPA",
+                "content": "Facilita la implementación de repositorios basados en JPA. Reduce el código repetitivo necesario para acceder a los datos."
+            },
+            "security": {
+                "title": "Spring Security",
+                "content": "Un marco de autenticación y control de acceso potente y altamente personalizable."
+            }
+        }
+    },
+    "dockerK8s": {
+        "title": "Docker y Kubernetes",
+        "subtitle": "Contenedorización y Orquestación para aplicaciones modernas.",
+        "docker": {
+            "title": "Docker",
+            "content": "Docker empaqueta el software en unidades estandarizadas llamadas contenedores que tienen todo lo que el software necesita para ejecutarse, incluidas bibliotecas, herramientas del sistema, código y tiempo de ejecución."
+        },
+        "k8s": {
+            "title": "Kubernetes",
+            "content": "Kubernetes (K8s) es un sistema de código abierto para automatizar el despliegue, escalado y gestión de aplicaciones en contenedores."
+        },
+        "terminal": {
+            "title": "Terminal Interactiva",
+            "desc": "Prueba algunos comandos comunes directamente en el navegador.",
+            "welcome": "Bienvenido al Laboratorio de Contenedores Interactivo.",
+            "hint": "Intenta ejecutar \"docker ps\" o \"kubectl get pods\". Escribe \"help\" para más."
+        },
+        "concepts": {
+            "title": "Conceptos Clave",
+            "images": {
+                "title": "Imágenes",
+                "content": "Una plantilla de solo lectura con instrucciones para crear un contenedor Docker."
+            },
+            "pods": {
+                "title": "Pods",
+                "content": "Las unidades de computación desplegables más pequeñas que se pueden crear y gestionar en Kubernetes."
+            },
+            "services": {
+                "title": "Servicios",
+                "content": "Una forma abstracta de exponer una aplicación que se ejecuta en un conjunto de Pods como un servicio de red."
+            }
+        },
+        "deepDive": {
+            "title": "Profundización",
+            "dockerfile": {
+                "title": "Dockerfile",
+                "content": "Un documento de texto que contiene todos los comandos que un usuario podría llamar en la línea de comandos para ensamblar una imagen."
+            },
+            "compose": {
+                "title": "Docker Compose",
+                "content": "Una herramienta para definir y ejecutar aplicaciones Docker multicontenedor."
+            },
+            "architecture": {
+                "title": "Arquitectura K8s",
+                "content": "El Nodo Maestro (Plano de Control) gestiona los Nodos Trabajadores donde se ejecutan los Pods."
+            }
+        }
+    },
+    "databases": {
+        "title": "Bases de Datos",
+        "subtitle": "SQL vs NoSQL: Eligiendo la herramienta adecuada para el trabajo.",
+        "description": "Paradigmas SQL y NoSQL.",
+        "persistence": "Persistencia",
+        "tabs": {
+            "overview": "Resumen",
+            "comparison": "Comparación",
+            "interactive": "Interactivo"
+        },
+        "postgres": {
+            "title": "PostgreSQL (SQL)",
+            "content": "Un potente sistema de base de datos relacional de objetos de código abierto con más de 30 años de desarrollo activo."
+        },
+        "mongo": {
+            "title": "MongoDB (NoSQL)",
+            "content": "Un programa de base de datos orientado a documentos multiplataforma disponible en código fuente. Clasificado como un programa de base de datos NoSQL, MongoDB utiliza documentos tipo JSON."
+        },
+        "sqlExample": {
+            "title": "Ejemplo SQL",
+            "desc": "Definiendo un esquema e insertando datos en PostgreSQL."
+        },
+        "mongoExample": {
+            "title": "Ejemplo NoSQL",
+            "desc": "Insertando un documento en MongoDB."
+        },
+        "comparison": {
+            "title": "Comparación",
+            "sql": {
+                "title": "Relacional (SQL)",
+                "structure": "Datos estructurados",
+                "schema": "Esquema estricto",
+                "scaling": "Escalado vertical"
+            },
+            "nosql": {
+                "title": "No Relacional (NoSQL)",
+                "structure": "Datos no estructurados",
+                "schema": "Esquema flexible",
+                "scaling": "Escalado horizontal"
+            }
+        },
+        "deepDive": {
+            "title": "Profundización",
+            "acid": {
+                "title": "Propiedades ACID",
+                "content": "Atomicidad, Consistencia, Aislamiento, Durabilidad. Garantiza la validez de las transacciones de la base de datos."
+            },
+            "cap": {
+                "title": "Teorema CAP",
+                "content": "Consistencia, Disponibilidad, Tolerancia a Particiones. Un almacén de datos distribuido solo puede proporcionar dos de las tres garantías."
+            },
+            "indexing": {
+                "title": "Indexación",
+                "content": "Una técnica de estructura de datos utilizada para localizar y acceder rápidamente a los datos en una base de datos."
+            }
+        },
+        "sqlCard": {
+            "desc": "Bases de datos relacionales basadas en tablas estructuradas y esquemas estrictos. Ideal para relaciones complejas e integridad transaccional.",
+            "features": {
+                "acid": "Cumplimiento ACID",
+                "scaling": "Escalado Vertical",
+                "joins": "Joins Complejos"
+            }
+        },
+        "nosqlCard": {
+            "desc": "Bases de datos no relacionales con esquemas flexibles. Diseñadas para alto rendimiento, escala masiva y desarrollo rápido.",
+            "features": {
+                "scaling": "Escalado Horizontal",
+                "flexible": "Esquema Flexible",
+                "ha": "Alta Disponibilidad"
+            }
+        },
+        "interactive": {
+            "title": "Patio de Recreo de Bases de Datos",
+            "desc": "Explora conceptos de bases de datos. Prueba \"help\" para ver los comandos disponibles.",
+            "commands": {
+                "sqlInfo": "Obtener información sobre bases de datos SQL",
+                "nosqlInfo": "Obtener información sobre bases de datos NoSQL",
+                "listTypes": "Listar tipos comunes de bases de datos",
+                "help": "Mostrar ayuda"
+            }
+        },
+        "comparisonDetails": {
+            "structure": {
+                "title": "Estructura",
+                "sql": "Tablas con filas y columnas.",
+                "nosql": "Documentos, clave-valor, grafos o columnas anchas."
+            },
+            "schema": {
+                "title": "Esquema",
+                "sql": "Rígido. Debe definirse antes de insertar datos.",
+                "nosql": "Dinámico. Puede cambiar en cualquier momento."
+            },
+            "scalability": {
+                "title": "Escalabilidad",
+                "sql": "Vertical (máquina más grande).",
+                "nosql": "Horizontal (más máquinas)."
+            }
+        }
+    },
+    "fedora": {
+        "title": "Fedora Workstation",
+        "subtitle": "La plataforma de desarrollo de código abierto de primer nivel.",
+        "why": {
+            "title": "¿Por qué Fedora?",
+            "content": "Fedora Workstation es un sistema operativo pulido, fácil de usar y completo para portátiles y escritorios, con un conjunto completo de herramientas para desarrolladores y creadores de todo tipo."
+        },
+        "features": {
+            "upstream": {
+                "title": "Upstream Primero",
+                "content": "Fedora contribuye directamente a los proyectos upstream. Obtienes las últimas características primero."
+            },
+            "technologies": {
+                "title": "Vanguardia",
+                "content": "Primero en adoptar nuevas tecnologías como Wayland, PipeWire y Btrfs por defecto."
+            },
+            "containers": {
+                "title": "Listo para Contenedores",
+                "content": "Soporte de primera clase para Podman, Buildah y Skopeo desde el primer momento."
+            }
+        },
+        "setup": {
+            "title": "Configuración de Desarrollador",
+            "desc": "Comandos esenciales para preparar tu entorno."
+        },
+        "deepDive": {
+            "title": "Profundización",
+            "systemd": {
+                "title": "Systemd",
+                "content": "Un conjunto de bloques de construcción básicos para un sistema Linux. Proporciona un administrador de sistemas y servicios que se ejecuta como PID 1 e inicia el resto del sistema."
+            },
+            "firewall": {
+                "title": "Firewalld",
+                "content": "Una herramienta de gestión de cortafuegos que proporciona un cortafuegos gestionado dinámicamente con soporte para zonas de red/cortafuegos."
+            },
+            "toolbox": {
+                "title": "Toolbox",
+                "content": "Ofrece un entorno familiar basado en paquetes para desarrollar y depurar software que se ejecuta totalmente sin privilegios utilizando Podman."
+            }
+        }
+    },
+    "common": {
+        "loading": "Cargando...",
+        "copy": "Copiar código",
+        "copied": "¡Copiado!"
+    },
+    "docker": {
+        "title": "Docker",
+        "subtitle": "Dominio de la Contenedorización",
+        "description": "La guía completa para contenedorización, desde conceptos básicos hasta orquestación de nivel de producción.",
+        "mastery": "Maestría",
+        "tabs": {
+            "overview": "Resumen",
+            "architecture": "Arquitectura",
+            "bestPractices": "Mejores Prácticas",
+            "compose": "Compose",
+            "interactive": "Interactivo"
+        },
+        "quiz": {
+            "knowledgeCheck": "Verificación de Conocimientos",
+            "submitAnswers": "Enviar Respuestas",
+            "tryAgain": "Intentar de Nuevo",
+            "score": "Obtuviste {score} de {total}",
+            "perfect": "¡Puntuación perfecta! ¡Eres un maestro de Docker!",
+            "goodEffort": "¡Buen esfuerzo! Revisa las secciones e inténtalo de nuevo.",
+            "questions": [
+                {
+                    "question": "¿Cuál es la diferencia principal entre una Imagen Docker y un Contenedor?",
+                    "options": [
+                        "Son lo mismo",
+                        "Una imagen es una instancia en ejecución, un contenedor es el plano",
+                        "Una imagen es una plantilla de solo lectura, un contenedor es una instancia ejecutable",
+                        "Los contenedores son para Linux, las imágenes son para Windows"
+                    ]
+                },
+                {
+                    "question": "¿Qué comando lista todos los contenedores en ejecución?",
+                    "options": [
+                        "docker images",
+                        "docker ps",
+                        "docker run",
+                        "docker info"
+                    ]
+                },
+                {
+                    "question": "¿Cuál es el propósito de una construcción multi-etapa?",
+                    "options": [
+                        "Hacer la construcción más lenta",
+                        "Ejecutar múltiples aplicaciones en un contenedor",
+                        "Reducir el tamaño de la imagen final descartando dependencias de construcción",
+                        "Usar múltiples sistemas operativos"
+                    ]
+                }
+            ]
+        },
+        "terminal": {
+            "welcome": "Bienvenido al Shell Interactivo de Docker",
+            "hint": "Prueba comandos como 'docker ps', 'docker images', o 'docker run hello-world'"
+        },
+        "sections": {
+            "coreConcepts": "Conceptos Principales",
+            "whatIsDocker": "¿Qué es Docker?",
+            "whatIsDockerDesc": "Docker es una plataforma abierta para desarrollar, enviar y ejecutar aplicaciones. Te permite separar tus aplicaciones de tu infraestructura para que puedas entregar software rápidamente.",
+            "whyContainers": "¿Por qué Contenedores?",
+            "whyContainersDesc": "Los contenedores son paquetes de software ligeros, independientes y ejecutables que incluyen todo lo necesario para ejecutar una aplicación: código, tiempo de ejecución, herramientas del sistema, bibliotecas del sistema y configuraciones.",
+            "imagesVsContainers": "Imágenes vs Contenedores",
+            "dockerImage": "Imagen Docker",
+            "dockerImageDesc": "Plantilla de solo lectura (La Receta)",
+            "dockerContainer": "Contenedor Docker",
+            "dockerContainerDesc": "Instancia Ejecutable (El Pastel)",
+            "builtFromDockerfile": "Construido desde Dockerfile",
+            "layeredFileSystem": "Sistema de archivos en capas",
+            "immutable": "Inmutable",
+            "createdFromImage": "Creado desde Imagen",
+            "isolatedProcess": "Proceso aislado",
+            "ephemeral": "Efímero (usualmente)",
+            "dockerArchitecture": "Arquitectura Docker",
+            "theDaemon": "El Daemon (dockerd)",
+            "theDaemonDesc": "El proceso en segundo plano que gestiona objetos Docker como imágenes, contenedores, redes y volúmenes. Escucha solicitudes de la API de Docker.",
+            "theClient": "El Cliente (docker)",
+            "theClientDesc": "La forma principal en que muchos usuarios de Docker interactúan con Docker. Cuando usas comandos como `docker run`, el cliente envía estos comandos a dockerd.",
+            "registries": "Registros",
+            "registriesDesc": "Almacena imágenes Docker. Docker Hub es un registro público que cualquiera puede usar, y Docker está configurado para buscar imágenes en Docker Hub por defecto.",
+            "underTheHood": "Bajo el Capó",
+            "namespaces": "Espacios de Nombres",
+            "namespacesDesc": "Docker usa una tecnología llamada espacios de nombres para proporcionar el espacio de trabajo aislado llamado contenedor. Cuando ejecutas un contenedor, Docker crea un conjunto de espacios de nombres para ese contenedor.",
+            "pidNamespace": "pid: Aislamiento de procesos",
+            "netNamespace": "net: Gestión de interfaces de red",
+            "ipcNamespace": "ipc: Gestión de acceso a recursos IPC",
+            "mntNamespace": "mnt: Gestión de puntos de montaje del sistema de archivos",
+            "utsNamespace": "uts: Aislamiento de identificadores de kernel y versión",
+            "controlGroups": "Grupos de Control (cgroups)",
+            "controlGroupsDesc": "Una característica del kernel de Linux que limita, contabiliza y aísla el uso de recursos (CPU, memoria, E/S de disco, red, etc.) de una colección de procesos.",
+            "cgroupsExample": "Ejemplo: Limitando un contenedor al 50% de CPU y 512MB de RAM.",
+            "dockerfileBestPractices": "Mejores Prácticas de Dockerfile",
+            "optimizationTips": "Consejos de Optimización",
+            "useMultiStage": "Usar Construcciones Multi-Etapa",
+            "useMultiStageDesc": "Mantén los tamaños de imagen reducidos copiando solo los artefactos necesarios a la imagen final.",
+            "leverageBuildCache": "Aprovechar la Caché de Construcción",
+            "leverageBuildCacheDesc": "Ordena las instrucciones de menos a más frecuentemente cambiantes (por ejemplo, copia package.json antes del código fuente).",
+            "useDockerignore": "Usar .dockerignore",
+            "useDockerignoreDesc": "Excluye archivos innecesarios (node_modules, git, logs) del contexto de construcción.",
+            "optimizedDockerfile": "Dockerfile Optimizado",
+            "securityBestPractices": "Mejores Prácticas de Seguridad",
+            "dontRunAsRoot": "No ejecutar como Root",
+            "dontRunAsRootDesc": "Siempre crea un usuario no root en tu Dockerfile y cambia a él usando la instrucción `USER`.",
+            "useTrustedBaseImages": "Usar Imágenes Base Confiables",
+            "useTrustedBaseImagesDesc": "Apégate a imágenes oficiales de Docker Hub o editores verificados. Evita la etiqueta `latest` en producción.",
+            "scanForVulnerabilities": "Escanear en Busca de Vulnerabilidades",
+            "scanForVulnerabilitiesDesc": "Usa herramientas como `docker scan` o Trivy para verificar tus imágenes en busca de fallas de seguridad conocidas.",
+            "dockerCompose": "Docker Compose",
+            "dockerComposeDesc": "Compose es una herramienta para definir y ejecutar aplicaciones Docker de múltiples contenedores. Con Compose, usas un archivo YAML para configurar los servicios de tu aplicación.",
+            "keyConcepts": "Conceptos Clave",
+            "services": "Servicios",
+            "servicesDesc": "Los recursos informáticos de tu aplicación (por ejemplo, servidor web, base de datos).",
+            "networks": "Redes",
+            "networksDesc": "Define cómo se comunican los servicios. Por defecto, Compose configura una sola red para tu aplicación.",
+            "volumes": "Volúmenes",
+            "volumesDesc": "Almacenamiento de datos persistente. Esencial para bases de datos para que los datos sobrevivan a los reinicios de contenedores.",
+            "interactiveTerminal": "Terminal Interactiva",
+            "tryDockerCommands": "Prueba ejecutar algunos comandos de Docker en este entorno simulado."
+        }
+    },
+    "terminal": {
+        "welcome": "Bienvenido al Shell Interactivo de Kubernetes",
+        "hint": "Prueba comandos como 'kubectl get pods', 'kubectl get nodes', o 'kubectl cluster-info'"
+    },
+    "sections": {
+        "coreConcepts": "Conceptos Principales",
+        "pod": "Pod",
+        "podDesc": "La unidad desplegable más pequeña. Un Pod representa una sola instancia de un proceso en ejecución en tu clúster. Puede contener uno o más contenedores.",
+        "node": "Nodo",
+        "nodeDesc": "Una máquina trabajadora en Kubernetes. Un nodo puede ser una VM o máquina física, dependiendo del clúster. Cada nodo es gestionado por el Plano de Control.",
+        "cluster": "Clúster",
+        "clusterDesc": "Un conjunto de máquinas nodo para ejecutar aplicaciones contenedorizadas. Si estás ejecutando Kubernetes, estás ejecutando un clúster.",
+        "theControlPlane": "El Plano de Control",
+        "apiServer": "Servidor API",
+        "apiServerDesc": "El front end para el plano de control de Kubernetes. Expone la API de Kubernetes.",
+        "etcd": "etcd",
+        "etcdDesc": "Almacén de valores clave consistente y altamente disponible usado como almacén de respaldo de Kubernetes para todos los datos del clúster.",
+        "scheduler": "Planificador",
+        "schedulerDesc": "Observa los Pods recién creados sin nodo asignado, y selecciona un nodo para que se ejecuten.",
+        "controllerManager": "Gestor de Controladores",
+        "controllerManagerDesc": "Ejecuta procesos de controlador (controlador de Nodo, controlador de Trabajo, controlador de EndpointSlice, etc.).",
+        "workloadResources": "Recursos de Carga de Trabajo",
+        "deployments": "Deployments",
+        "deploymentsDesc": "Un Deployment proporciona actualizaciones declarativas para Pods y ReplicaSets. Describes un estado deseado en un Deployment, y el Controlador de Deployment cambia el estado actual al estado deseado a una velocidad controlada.",
+        "rollingUpdates": "Actualizaciones Continuas",
+        "rollbacks": "Reversiones",
+        "scaling": "Escalado",
+        "otherControllers": "Otros Controladores",
+        "statefulSet": "StatefulSet",
+        "statefulSetDesc": "Gestiona el despliegue y escalado de un conjunto de Pods, y proporciona garantías sobre el orden y la unicidad de estos Pods. Ideal para bases de datos.",
+        "daemonSet": "DaemonSet",
+        "daemonSetDesc": "Asegura que todos (o algunos) Nodos ejecuten una copia de un Pod. A medida que se agregan nodos al clúster, se les agregan Pods. Útil para recolectores de logs o agentes de monitoreo.",
+        "servicesNetworking": "Servicios y Redes",
+        "serviceTypes": "Tipos de Servicio",
+        "clusterIP": "ClusterIP",
+        "clusterIPDesc": "Expone el Servicio en una IP interna del clúster. Elegir este valor hace que el Servicio solo sea alcanzable desde dentro del clúster. (Predeterminado)",
+        "nodePort": "NodePort",
+        "nodePortDesc": "Expone el Servicio en la IP de cada Nodo en un puerto estático. Puedes contactar el Servicio NodePort, desde fuera del clúster, solicitando NodeIP:NodePort.",
+        "loadBalancer": "LoadBalancer",
+        "loadBalancerDesc": "Expone el Servicio externamente usando el balanceador de carga de un proveedor de nube.",
+        "configurationStorage": "Configuración y Almacenamiento",
+        "configMaps": "ConfigMaps",
+        "configMapsDesc": "Objeto API usado para almacenar datos no confidenciales en pares clave-valor. Los Pods pueden consumir ConfigMaps como variables de entorno, argumentos de línea de comandos o como archivos de configuración en un volumen.",
+        "secrets": "Secrets",
+        "secretsDesc": "Objeto que contiene una pequeña cantidad de datos sensibles como una contraseña, un token o una clave. Usar un Secret significa que no necesitas incluir datos confidenciales en el código de tu aplicación.",
+        "persistentStorage": "Almacenamiento Persistente",
+        "persistentVolume": "PersistentVolume (PV)",
+        "persistentVolumeDesc": "Una pieza de almacenamiento en el clúster que ha sido aprovisionada por un administrador o aprovisionada dinámicamente usando Clases de Almacenamiento.",
+        "persistentVolumeClaim": "PersistentVolumeClaim (PVC)",
+        "persistentVolumeClaimDesc": "Una solicitud de almacenamiento por parte de un usuario. Es similar a un Pod. Los Pods consumen recursos de nodo y los PVCs consumen recursos de PV.",
+        "kubectlPlayground": "Patio de Recreo kubectl",
+        "practiceKubectl": "Practica tus comandos kubectl en este entorno simulado."
+    },
+    "git": {
+        "title": "Git",
+        "subtitle": "Control de Versiones",
+        "description": "Domina el control de versiones distribuido con Git - el estándar de la industria para rastrear cambios de código y colaborar con equipos.",
+        "tabs": {
+            "basics": "Básicos",
+            "branching": "Ramificación",
+            "advanced": "Avanzado",
+            "workflows": "Flujos de Trabajo",
+            "interactive": "Interactivo"
+        },
+        "quiz": {
+            "knowledgeCheck": "Verificación de Conocimientos",
+            "submitAnswers": "Enviar Respuestas",
+            "tryAgain": "Intentar de Nuevo",
+            "score": "Obtuviste {score} de {total}",
+            "perfect": "¡Perfecto! ¡Eres un maestro de Git!",
+            "goodEffort": "¡Buen esfuerzo! Revisa las secciones e inténtalo de nuevo.",
+            "questions": [
+                {
+                    "question": "¿Qué comando prepara todos los cambios para commit?",
+                    "options": [
+                        "git commit -a",
+                        "git add .",
+                        "git stage all",
+                        "git push"
+                    ]
+                },
+                {
+                    "question": "¿Cómo crear y cambiar a una nueva rama en un solo comando?",
+                    "options": [
+                        "git branch -new feature",
+                        "git switch feature",
+                        "git checkout -b feature",
+                        "git create feature"
+                    ]
+                },
+                {
+                    "question": "¿Qué hace 'git rebase'?",
+                    "options": [
+                        "Elimina todos los commits",
+                        "Reaplica commits sobre otra punta base",
+                        "Crea un nuevo repositorio",
+                        "Fusiona dos ramas"
+                    ]
+                }
+            ]
+        },
+        "terminal": {
+            "welcome": "Bienvenido al Shell Interactivo de Git",
+            "hint": "Prueba comandos como 'git status', 'git log', o 'git branch'"
+        },
+        "sections": {
+            "repository": "Repositorio",
+            "repositoryDesc": "Un directorio que contiene tu proyecto y su historial de versiones.",
+            "commit": "Commit",
+            "commitDesc": "Una instantánea de tu repositorio en un momento específico.",
+            "branch": "Rama",
+            "branchDesc": "Una línea independiente de desarrollo.",
+            "workingDirectory": "Directorio de Trabajo",
+            "workingDirectoryDesc": "Los archivos en tu proyecto en los que estás trabajando actualmente.",
+            "stagingArea": "Área de Preparación",
+            "stagingAreaDesc": "Archivos que están listos para ser confirmados.",
+            "theThreeStates": "Los Tres Estados",
+            "essentialCommands": "Comandos Esenciales",
+            "whyBranch": "¿Por qué Ramificar?",
+            "whyBranchDesc": "La ramificación te permite divergir de la línea principal de desarrollo y continuar trabajando sin interferir con esa línea principal. Es esencial para:",
+            "featureDevelopment": "Desarrollo de características",
+            "bugFixes": "Corrección de errores",
+            "experimentation": "Experimentación",
+            "parallelDevelopment": "Desarrollo paralelo",
+            "mergeStrategies": "Estrategias de Fusión",
+            "fastForwardMerge": "Fusión Fast-Forward",
+            "fastForwardMergeDesc": "Cuando hay un camino directo desde la punta de la rama actual hasta la rama objetivo, Git simplemente mueve el puntero hacia adelante. No se crea commit de fusión.",
+            "threeWayMerge": "Fusión de Tres Vías",
+            "threeWayMergeDesc": "Cuando las ramas han divergido, Git crea un nuevo commit de fusión que combina los cambios de ambas ramas. Esto preserva el historial de ambas ramas.",
+            "advancedTechniques": "Técnicas Avanzadas",
+            "powerfulTools": "Herramientas Poderosas",
+            "rebase": "Rebase",
+            "rebaseDesc": "Reaplica commits sobre otra punta base. Crea un historial lineal pero reescribe hashes de commit. ¡Nunca hagas rebase de commits públicos!",
+            "cherryPick": "Cherry-Pick",
+            "cherryPickDesc": "Aplica un commit específico de una rama a otra. Útil para aplicar selectivamente correcciones de errores o características.",
+            "bisect": "Bisect",
+            "bisectDesc": "Búsqueda binaria a través del historial de commits para encontrar qué commit introdujo un error. Extremadamente poderoso para depuración.",
+            "commonWorkflows": "Flujos de Trabajo Comunes",
+            "featureBranchWorkflow": "Flujo de Trabajo de Rama de Características",
+            "featureBranchWorkflowDesc": "Desarrollo de características en una rama dedicada en lugar de la rama principal.",
+            "createBranch": "Crear una nueva rama desde main",
+            "makeCommits": "Hacer commits en la rama de características",
+            "pushBranch": "Empujar la rama de características al remoto",
+            "openPullRequest": "Abrir una solicitud de extracción",
+            "mergeAfterReview": "Fusionar después de la revisión del código",
+            "gitflowWorkflow": "Flujo de Trabajo Gitflow",
+            "gitflowWorkflowDesc": "Un modelo de ramificación estricto diseñado alrededor de las versiones del proyecto.",
+            "mainBranches": "Ramas Principales:",
+            "mainProduction": "main (producción)",
+            "developIntegration": "develop (integración)",
+            "supportingBranches": "Ramas de Soporte:",
+            "featureBranches": "feature/*",
+            "releaseBranches": "release/*",
+            "hotfixBranches": "hotfix/*",
+            "gitCommandPlayground": "Patio de Recreo de Comandos Git"
+        }
+    },
+    "github": {
+        "title": "GitHub",
+        "subtitle": "Colaboración",
+        "description": "La plataforma líder mundial para control de versiones y colaboración. Construye, envía y mantén software con millones de desarrolladores.",
+        "collaboration": "Colaboración",
+        "tabs": {
+            "prs": "Pull Requests",
+            "actions": "Actions",
+            "issues": "Issues",
+            "security": "Seguridad",
+            "interactive": "Interactivo"
+        },
+        "quiz": {
+            "knowledgeCheck": "Verificación de Conocimientos",
+            "submitAnswers": "Enviar Respuestas",
+            "tryAgain": "Intentar de Nuevo",
+            "score": "Obtuviste {score} de {total}",
+            "excellent": "¡Excelente! ¡Eres un profesional de GitHub!",
+            "goodTry": "¡Buen intento! Revisa los conceptos e inténtalo de nuevo.",
+            "questions": [
+                {
+                    "question": "¿Qué es un Pull Request?",
+                    "options": [
+                        "Una solicitud para descargar código",
+                        "Una propuesta para fusionar cambios de una rama a otra",
+                        "Una forma de eliminar un repositorio",
+                        "Una copia de seguridad de tu código"
+                    ]
+                },
+                {
+                    "question": "¿Qué te permite hacer GitHub Actions?",
+                    "options": [
+                        "Solo ejecutar pruebas",
+                        "Automatizar flujos de trabajo como CI/CD, pruebas y despliegues",
+                        "Solo desplegar a producción",
+                        "Eliminar commits antiguos"
+                    ]
+                },
+                {
+                    "question": "¿Para qué se usa un GitHub Issue?",
+                    "options": [
+                        "Solo para reportar errores",
+                        "Rastrear tareas, mejoras y errores",
+                        "Almacenar código",
+                        "Ejecutar pruebas automatizadas"
+                    ]
+                }
+            ]
+        },
+        "terminal": {
+            "welcome": "Bienvenido al Shell Interactivo de GitHub CLI",
+            "hint": "Prueba comandos como 'gh pr list', 'gh issue list', o 'gh repo view'"
+        },
+        "sections": {
+            "pullRequests": {
+                "title": "Pull Requests y Revisión de Código",
+                "prWorkflowTitle": "El Flujo de Trabajo de PR",
+                "prWorkflowDescription": "Los Pull Requests te permiten informar a otros sobre los cambios que has enviado a una rama en un repositorio en GitHub. Una vez que se abre un PR, puedes discutir y revisar los cambios potenciales con colaboradores.",
+                "workflowSteps": {
+                    "forkClone": "Fork y Clonar",
+                    "createFeatureBranch": "Crear rama de características",
+                    "makeChangesCommit": "Hacer cambios y commit",
+                    "pushOpenPR": "Push y abrir PR",
+                    "codeReview": "Revisión de código",
+                    "merge": "Fusionar"
+                }
+            },
+            "codeReviewBestPractices": {
+                "title": "Mejores Prácticas de Revisión de Código",
+                "constructive": {
+                    "title": "Ser Constructivo",
+                    "description": "Proporciona retroalimentación específica y accionable. Enfócate en el código, no en la persona. Sugiere mejoras en lugar de solo señalar problemas."
+                },
+                "promptly": {
+                    "title": "Revisar Prontamente",
+                    "description": "Las revisiones oportunas mantienen el proceso de desarrollo en movimiento. Intenta revisar PRs dentro de 24 horas para mantener el impulso del equipo."
+                },
+                "thoroughly": {
+                    "title": "Probar Exhaustivamente",
+                    "description": "No solo leas el código, descárgalo y pruébalo. Verifica que los cambios funcionen como se espera y no rompan la funcionalidad existente."
+                }
+            },
+            "githubActions": {
+                "title": "GitHub Actions y CI/CD",
+                "whatAreActionsTitle": "¿Qué son GitHub Actions?",
+                "whatAreActionsDescription": "GitHub Actions facilita la automatización de todos tus flujos de trabajo de software con CI/CD de clase mundial. Construye, prueba y despliega tu código directamente desde GitHub.",
+                "workflows": {
+                    "title": "Flujos de trabajo",
+                    "description": "Procesos automatizados definidos en archivos YAML que se ejecutan en eventos específicos."
+                },
+                "jobs": {
+                    "title": "Trabajos",
+                    "description": "Un conjunto de pasos que se ejecutan en el mismo runner. Los trabajos pueden ejecutarse en paralelo o secuencialmente."
+                },
+                "actions": {
+                    "title": "Acciones",
+                    "description": "Unidades de código reutilizables que se pueden compartir entre flujos de trabajo y repositorios."
+                }
+            },
+            "commonUseCases": {
+                "title": "Casos de Uso Comunes",
+                "ci": {
+                    "title": "Integración Continua",
+                    "description": "Construye y prueba automáticamente los cambios de código. Ejecuta pruebas en cada push o PR para detectar errores temprano."
+                },
+                "cd": {
+                    "title": "Despliegue Continuo",
+                    "description": "Despliega automáticamente a staging o producción cuando se fusiona el código. Agiliza tu proceso de lanzamiento."
+                }
+            },
+            "issuesAndProjectManagement": {
+                "title": "Issues y Gestión de Proyectos",
+                "githubIssuesTitle": "GitHub Issues",
+                "githubIssuesDescription": "Los Issues son una excelente manera de realizar un seguimiento de tareas, mejoras y errores para tus proyectos. Son como correo electrónico, excepto que pueden compartirse y discutirse con el resto de tu equipo.",
+                "labels": {
+                    "title": "Etiquetas",
+                    "description": "Categorizar y filtrar issues"
+                },
+                "milestones": {
+                    "title": "Hitos",
+                    "description": "Agrupar issues para lanzamientos"
+                },
+                "assignees": {
+                    "title": "Asignados",
+                    "description": "Delegar trabajo a miembros del equipo"
+                },
+                "githubProjectsTitle": "GitHub Projects",
+                "githubProjectsDescription": "Los Projects te ayudan a organizar y priorizar tu trabajo. Puedes crear tableros de proyecto para características específicas, hojas de ruta completas o incluso listas de verificación de lanzamiento.",
+                "projectStatuses": {
+                    "todo": "Por Hacer",
+                    "inProgress": "En Progreso",
+                    "done": "Hecho"
+                }
+            },
+            "securityFeatures": {
+                "title": "Características de Seguridad",
+                "dependabot": {
+                    "title": "Dependabot",
+                    "description": "Verifica automáticamente tus dependencias en busca de vulnerabilidades de seguridad conocidas y crea PRs para actualizarlas."
+                },
+                "codeScanning": {
+                    "title": "Escaneo de Código",
+                    "description": "Encuentra vulnerabilidades de seguridad y errores de codificación en tu código. Impulsado por CodeQL y otras herramientas."
+                },
+                "secretScanning": {
+                    "title": "Escaneo de Secretos",
+                    "description": "Detecta secretos (claves API, tokens) que se han confirmado accidentalmente en tu repositorio."
+                }
+            },
+            "securityBestPractices": {
+                "title": "Mejores Prácticas",
+                "branchProtection": {
+                    "title": "Habilitar Protección de Ramas",
+                    "description": "Requiere revisiones de PR y verificaciones de estado antes de fusionar."
+                },
+                "secretsManagement": {
+                    "title": "Usar Gestión de Secretos",
+                    "description": "Almacena datos sensibles en GitHub Secrets, nunca en el código."
+                },
+                "twoFactorAuth": {
+                    "title": "Habilitar 2FA",
+                    "description": "Protege tu cuenta con autenticación de dos factores."
+                },
+                "reviewPermissions": {
+                    "title": "Revisar Permisos",
+                    "description": "Audita regularmente quién tiene acceso a tus repositorios."
+                }
+            },
+            "githubCLIPlayground": "Patio de Recreo de GitHub CLI",
+            "practiceGithubCLI": "Practica comandos de GitHub CLI en este entorno simulado."
+        }
+    },
+    "kubernetes": {
+        "title": "Kubernetes",
+        "orchestration": "Orquestación",
+        "description": "El estándar de la industria para la orquestación de contenedores. Automatiza el despliegue, escalado y gestión.",
+        "tabs": {
+            "concepts": "Conceptos",
+            "workloads": "Cargas de Trabajo",
+            "networking": "Redes",
+            "config": "Configuración",
+            "interactive": "Interactivo"
+        },
+        "sections": {
+            "coreConcepts": "Conceptos Básicos",
+            "clusterArchitecture": "Arquitectura del Clúster",
+            "controlPlane": "Plano de Control",
+            "controlPlaneDesc": "El cerebro del clúster (API Server, Scheduler, etc.)",
+            "workerNodes": "Nodos Trabajadores",
+            "workerNodesDesc": "Donde se ejecutan tus aplicaciones (Kubelet, Kube-proxy)",
+            "pods": "Pods",
+            "podsDesc": "La unidad de computación desplegable más pequeña",
+            "workloads": "Cargas de Trabajo",
+            "deployments": "Deployments",
+            "deploymentsDesc": "Gestiona aplicaciones sin estado replicadas",
+            "statefulSets": "StatefulSets",
+            "statefulSetsDesc": "Para aplicaciones con estado (bases de datos)",
+            "daemonSets": "DaemonSets",
+            "daemonSetsDesc": "Ejecuta una copia de un Pod en cada nodo",
+            "networking": "Redes",
+            "services": "Servicios",
+            "servicesDesc": "Red estable para Pods (ClusterIP, NodePort, LoadBalancer)",
+            "ingress": "Ingress",
+            "ingressDesc": "Acceso HTTP/HTTPS a servicios",
+            "networkPolicies": "Políticas de Red",
+            "networkPoliciesDesc": "Controla el flujo de tráfico entre Pods",
+            "configuration": "Configuración",
+            "configMaps": "ConfigMaps",
+            "configMapsDesc": "Almacena datos de configuración no confidenciales",
+            "secrets": "Secretos",
+            "secretsDesc": "Almacena datos sensibles (contraseñas, tokens)",
+            "kubectlPlayground": "Patio de Recreo de kubectl",
+            "practiceKubectl": "Practica tus comandos kubectl en este entorno simulado."
+        },
+        "terminal": {
+            "welcome": "Bienvenido al Shell Interactivo de Kubernetes",
+            "hint": "Prueba comandos como 'kubectl get pods', 'kubectl get nodes', o 'kubectl cluster-info'"
+        },
+        "quiz": {
+            "knowledgeCheck": "Verificación de Conocimientos",
+            "score": "Obtuviste {score} de {total}",
+            "excellent": "¡Excelente! ¡Estás listo para orquestar!",
+            "goodTry": "¡Buen intento! Revisa los conceptos e inténtalo de nuevo.",
+            "tryAgain": "Intentar de Nuevo",
+            "submitAnswers": "Enviar Respuestas",
+            "questions": [
+                {
+                    "question": "¿Cuál es la unidad más pequeña en Kubernetes?",
+                    "options": [
+                        "Nodo",
+                        "Pod",
+                        "Contenedor",
+                        "Servicio"
+                    ]
+                },
+                {
+                    "question": "¿Para qué se usa un Servicio?",
+                    "options": [
+                        "Para ejecutar contenedores",
+                        "Para exponer una aplicación corriendo en Pods",
+                        "Para almacenar datos",
+                        "Para construir imágenes"
+                    ]
+                },
+                {
+                    "question": "¿Qué componente programa los Pods en los Nodos?",
+                    "options": [
+                        "Kubelet",
+                        "etcd",
+                        "Kube-scheduler",
+                        "API Server"
+                    ]
+                }
+            ]
+        }
+    }
+}

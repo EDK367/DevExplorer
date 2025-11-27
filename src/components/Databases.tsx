@@ -15,10 +15,10 @@ export const Databases = () => {
     <div className="page-container max-w-7xl mx-auto px-4 py-8">
       <header className="mb-12 text-center">
         <h1 className="text-5xl font-bold mb-4">
-          {t('databases.title')} <span className="gradient-text">Persistence</span>
+          {t('databases.title')} <span className="gradient-text">{t('databases.persistence')}</span>
         </h1>
         <p className="text-xl text-muted max-w-2xl mx-auto">
-          {t('databases.description')}
+          {t('databases.subtitle')}
         </p>
       </header>
 
@@ -33,7 +33,7 @@ export const Databases = () => {
               : 'bg-card hover:bg-accent/10'
               }`}
           >
-            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            {t(`databases.tabs.${tab}`)}
           </button>
         ))}
       </div>
