@@ -1,7 +1,5 @@
 'use client';
 
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -28,22 +26,22 @@ export const Sidebar = ({ isOpen, onClose }) => {
 
   const navItems = [
     { path: '/', label: t('nav.home'), icon: Home },
-    { path: '/microservices', label: t('nav.microservices'), icon: Server },
-    { path: '/java', label: t('nav.java'), icon: Coffee },
-    { path: '/spring-boot', label: t('nav.springBoot'), icon: Box },
-    { path: '/docker', label: 'Docker', icon: Container },
-    { path: '/kubernetes', label: 'Kubernetes', icon: Box },
-    { path: '/git', label: 'Git', icon: GitBranch },
-    { path: '/github', label: 'GitHub', icon: Github },
-    { path: '/databases', label: t('nav.databases'), icon: Database },
-    { path: '/sql', label: 'SQL', icon: Table },
-    { path: '/nosql', label: 'NoSQL', icon: FileJson },
-    { path: '/fedora', label: t('nav.fedora'), icon: Terminal },
+    { path: '/ui/microservices', label: t('nav.microservices'), icon: Server },
+    { path: '/ui/java', label: t('nav.java'), icon: Coffee },
+    { path: '/ui/spring-boot', label: t('nav.springBoot'), icon: Box },
+    { path: '/ui/docker', label: 'Docker', icon: Container },
+    { path: '/ui/kubernetes', label: 'Kubernetes', icon: Box },
+    { path: '/ui/git', label: 'Git', icon: GitBranch },
+    { path: '/ui/github', label: 'GitHub', icon: Github },
+    { path: '/ui/databases', label: t('nav.databases'), icon: Database },
+    { path: '/ui/sql', label: 'SQL', icon: Table },
+    { path: '/ui/nosql', label: 'NoSQL', icon: FileJson },
+    { path: '/ui/fedora', label: t('nav.fedora'), icon: Terminal },
   ];
 
   return (
     <>
-      {/* Mobile Overlay */}
+      {/* para moviles */}
       <div
         className={`mobile-overlay ${isOpen ? 'open' : ''}`}
         onClick={onClose}

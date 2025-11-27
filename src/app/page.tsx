@@ -14,6 +14,10 @@ export default function Home() {
         Your interactive journey into the world of modern software engineering.
       </p>
       <div className="features-grid">
+        <div className='feature-card'>
+          <h3>Java</h3>
+          <p>Programming language.</p>
+        </div>
         <div className="feature-card">
           <h3>Microservices</h3>
           <p>Decouple your architecture.</p>
@@ -30,6 +34,7 @@ export default function Home() {
           <h3>Modern Data</h3>
           <p>SQL & NoSQL paradigms.</p>
         </div>
+      
       </div>
     </div>
   );

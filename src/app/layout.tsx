@@ -1,7 +1,7 @@
-import './globals.css';
+import '@/app/styles/globals.css'
 import { Inter } from 'next/font/google';
-import { Layout } from '../components/Layout'
-import I18nProvider from '../components/I18nProvider';
+import { Layout } from '@/components/Layout'
+import I18nProvider from '@/components/I18nProvider';
 import { ReactNode } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });

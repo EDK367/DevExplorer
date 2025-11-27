@@ -13,14 +13,14 @@ export const Layout = ({ children }: LayoutProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Close menu when route changes
+  // cerrar el menu cuando el path cambia
   React.useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
   return (
     <div className="app-layout">
-      {/* Mobile Header */}
+      {/* para celulares */}
       <header className="mobile-header">
         <button
           className="menu-btn"
