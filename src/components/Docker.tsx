@@ -5,13 +5,70 @@ import { useTranslation } from 'react-i18next';
 import { CodeBlock } from '../components/CodeBlock';
 import { Card } from '../components/Card';
 import { MockTerminal } from '../components/MockTerminal';
-import { Container, Layers, Box, Network, Shield, Server, FileText, Terminal as TerminalIcon, CheckCircle, XCircle } from 'lucide-react';
+import { Container, Layers, Box, Network, Shield, Server, FileText, Terminal as TerminalIcon, CheckCircle, XCircle, Settings, Database, Search } from 'lucide-react';
+
+interface QuizQuestion {
+    question: string;
+    options: string[];
+    correct: number;
+}
+
+interface QuizComponentProps {
+    questions: QuizQuestion[];
+    onSubmit: (answers: number[]) => void;
+}
+
+const QuizComponent = ({ questions, onSubmit }: QuizComponentProps) => {
+    const [answers, setAnswers] = useState<number[]>(new Array(questions.length).fill(null));
+
+    const handleSelect = (qIndex: number, oIndex: number): void => {
+        const newAnswers = [...answers];
+        newAnswers[qIndex] = oIndex;
+        setAnswers(newAnswers);
+    };
+
+    const isComplete = answers.every(a => a !== null);
+
+    return (
+        <div className="space-y-8">
+            {questions.map((q, qIdx) => (
+                <div key={qIdx} className="space-y-3">
+                    <h4 className="font-medium text-lg">{qIdx + 1}. {q.question}</h4>
+                    <div className="space-y-2">
+                        {q.options.map((opt, oIdx) => (
+                            <button
+                                key={oIdx}
+                                onClick={() => handleSelect(qIdx, oIdx)}
+                                className={`w-full text-left p-3 rounded-lg border transition-all ${answers[qIdx] === oIdx
+                                    ? 'border-accent bg-accent/10 text-accent'
+                                    : 'border-border hover:bg-secondary/50'
+                                    }`}
+                            >
+                                {opt}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            ))}
+            <button
+                disabled={!isComplete}
+                onClick={() => onSubmit(answers)}
+                className={`w-full py-3 rounded-lg font-bold transition-all ${isComplete
+                    ? 'bg-accent text-white hover:bg-accent/90'
+                    : 'bg-secondary text-muted cursor-not-allowed'
+                    }`}
+            >
+                Submit Answers
+            </button>
+        </div>
+    );
+};
 
 export const Docker = () => {
     const { t } = useTranslation();
-    const [activeTab, setActiveTab] = useState('overview');
-    const [quizScore, setQuizScore] = useState(0);
-    const [showQuizResult, setShowQuizResult] = useState(false);
+    const [activeTab, setActiveTab] = useState<'overview' | 'architecture' | 'best-practices' | 'compose' | 'interactive'>('overview');
+    const [quizScore, setQuizScore] = useState<number>(0);
+    const [showQuizResult, setShowQuizResult] = useState<boolean>(false);
 
     const dockerfileExample = `
 # Use multi-stage builds for smaller images
@@ -52,7 +109,7 @@ volumes:
   postgres_data:
 `;
 
-    const quizQuestions = [
+    const quizQuestions: QuizQuestion[] = [
         {
             question: "What is the primary difference between a Docker Image and a Container?",
             options: [
@@ -85,7 +142,7 @@ volumes:
         }
     ];
 
-    const handleQuizSubmit = (answers) => {
+    const handleQuizSubmit = (answers: number[]): void => {
         let score = 0;
         answers.forEach((ans, idx) => {
             if (ans === quizQuestions[idx].correct) score++;
@@ -93,6 +150,8 @@ volumes:
         setQuizScore(score);
         setShowQuizResult(true);
     };
+
+    const tabs = ['overview', 'architecture', 'best-practices', 'compose', 'interactive'] as const;
 
     return (
         <div className="page-container max-w-7xl mx-auto px-4 py-8">
@@ -107,7 +166,7 @@ volumes:
 
             {/* Navigation Tabs */}
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {['overview', 'architecture', 'best-practices', 'compose', 'interactive'].map((tab) => (
+                {tabs.map((tab) => (
                     <button
                         key={tab}
                         onClick={() => setActiveTab(tab)}
@@ -393,53 +452,3 @@ volumes:
         </div>
     );
 };
-
-// Helper components for the file
-const QuizComponent = ({ questions, onSubmit }) => {
-    const [answers, setAnswers] = useState(new Array(questions.length).fill(null));
-
-    const handleSelect = (qIndex, oIndex) => {
-        const newAnswers = [...answers];
-        newAnswers[qIndex] = oIndex;
-        setAnswers(newAnswers);
-    };
-
-    const isComplete = answers.every(a => a !== null);
-
-    return (
-        <div className="space-y-8">
-            {questions.map((q, qIdx) => (
-                <div key={qIdx} className="space-y-3">
-                    <h4 className="font-medium text-lg">{qIdx + 1}. {q.question}</h4>
-                    <div className="space-y-2">
-                        {q.options.map((opt, oIdx) => (
-                            <button
-                                key={oIdx}
-                                onClick={() => handleSelect(qIdx, oIdx)}
-                                className={`w-full text-left p-3 rounded-lg border transition-all ${answers[qIdx] === oIdx
-                                    ? 'border-accent bg-accent/10 text-accent'
-                                    : 'border-border hover:bg-secondary/50'
-                                    }`}
-                            >
-                                {opt}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            ))}
-            <button
-                disabled={!isComplete}
-                onClick={() => onSubmit(answers)}
-                className={`w-full py-3 rounded-lg font-bold transition-all ${isComplete
-                    ? 'bg-accent text-white hover:bg-accent/90'
-                    : 'bg-secondary text-muted cursor-not-allowed'
-                    }`}
-            >
-                Submit Answers
-            </button>
-        </div>
-    );
-};
-
-// Missing icons import fix
-import { Settings, Database, Search } from 'lucide-react';

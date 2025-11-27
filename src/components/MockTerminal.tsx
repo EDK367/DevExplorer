@@ -3,12 +3,28 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, ChevronDown, ChevronRight, Play } from 'lucide-react';
 
-export const MockTerminal = ({ prompt = "$", commands = {}, initialOutput = [] }) => {
+interface CommandValue {
+  desc?: string;
+  output?: string;
+}
+
+interface MockTerminalProps {
+  prompt?: string;
+  commands?: Record<string, string | CommandValue>;
+  initialOutput?: string[];
+}
+
+interface HistoryItem {
+  type: 'command' | 'output';
+  content: string;
+}
+
+export const MockTerminal = ({ prompt = "$", commands = {}, initialOutput = [] }: MockTerminalProps) => {
   const [input, setInput] = useState('');
-  const [history, setHistory] = useState(initialOutput.map(line => ({ type: 'output', content: line })));
+  const [history, setHistory] = useState<HistoryItem[]>(initialOutput.map(line => ({ type: 'output', content: line })));
   const [isAccordionOpen, setIsAccordionOpen] = useState(true);
-  const inputRef = useRef(null);
-  const bodyRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
 
   // Scroll to bottom of terminal body only
   useEffect(() => {
@@ -17,8 +33,8 @@ export const MockTerminal = ({ prompt = "$", commands = {}, initialOutput = [] }
     }
   }, [history]);
 
-  const handleCommand = (cmd) => {
-    const newHistory = [...history, { type: 'command', content: `${prompt} ${cmd}` }];
+  const handleCommand = (cmd: string) => {
+    const newHistory: HistoryItem[] = [...history, { type: 'command', content: `${prompt} ${cmd}` }];
 
     if (cmd) {
       if (cmd === 'clear') {
@@ -27,7 +43,17 @@ export const MockTerminal = ({ prompt = "$", commands = {}, initialOutput = [] }
         return;
       }
 
-      const response = commands[cmd]?.output || commands[cmd] || `bash: ${cmd}: command not found`;
+      const cmdValue = commands[cmd];
+      let response = `bash: ${cmd}: command not found`;
+
+      if (cmdValue) {
+        if (typeof cmdValue === 'string') {
+          response = cmdValue;
+        } else if (typeof cmdValue === 'object' && cmdValue.output) { // Explicitly check for object type
+          response = cmdValue.output;
+        }
+      }
+
       newHistory.push({ type: 'output', content: response });
     }
 
@@ -35,7 +61,7 @@ export const MockTerminal = ({ prompt = "$", commands = {}, initialOutput = [] }
     setInput('');
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
       handleCommand(input.trim());
@@ -45,8 +71,8 @@ export const MockTerminal = ({ prompt = "$", commands = {}, initialOutput = [] }
   // Parse commands for the accordion
   const commandList = Object.entries(commands).map(([cmd, value]) => ({
     cmd,
-    desc: value.desc || 'Execute command',
-    output: value.output || value
+    desc: (typeof value === 'object' ? value.desc : undefined) || 'Execute command',
+    output: typeof value === 'object' ? value.output : value
   })).filter(item => item.cmd !== 'help');
 
   return (
