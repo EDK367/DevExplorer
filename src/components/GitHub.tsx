@@ -13,11 +13,7 @@ export const GitHub = () => {
     const [quizScore, setQuizScore] = useState(0);
     const [showQuizResult, setShowQuizResult] = useState(false);
 
-    interface QuizQuestion {
-        question: string;
-        options: string[];
-        correct: number;
-    }
+
 
 
     const prWorkflow = `
@@ -422,7 +418,12 @@ jobs:
     );
 };
 
-// Helper components
+interface QuizQuestion {
+    question: string;
+    options: string[];
+    correct: number;
+}
+
 interface QuizComponentProps {
     questions: QuizQuestion[];
     onSubmit: (answers: number[]) => void;

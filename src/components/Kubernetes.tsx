@@ -13,11 +13,7 @@ export const Kubernetes = () => {
     const [quizScore, setQuizScore] = useState(0);
     const [showQuizResult, setShowQuizResult] = useState(false);
 
-    interface QuizQuestion {
-        question: string;
-        options: string[];
-        correct: number;
-    }
+
 
 
     const deploymentYaml = `
@@ -376,6 +372,11 @@ spec:
     );
 };
 
+interface QuizQuestion {
+    question: string;
+    options: string[];
+    correct: number;
+}
 // Helper components for the file
 interface QuizComponentProps {
     questions: QuizQuestion[];

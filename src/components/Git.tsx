@@ -13,11 +13,6 @@ export const Git = () => {
     const [quizScore, setQuizScore] = useState(0);
     const [showQuizResult, setShowQuizResult] = useState(false);
 
-    interface QuizQuestion {
-        question: string;
-        options: string[];
-        correct: number;
-    }
 
 
     const basicCommands = `
@@ -407,11 +402,17 @@ git stash pop
     );
 };
 
-// Helper components
+
+interface QuizQuestion {
+        question: string;
+        options: string[];
+        correct: number;
+}
+
 interface QuizComponentProps {
     questions: QuizQuestion[];
     onSubmit: (answers: number[]) => void;
-    t: any;
+    t: (key: string) => string;
 }
 
 const QuizComponent = ({ questions, onSubmit, t }: QuizComponentProps) => {
