@@ -25,6 +25,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     </Layout>
                 </I18nProvider>
             </body>
+            <div className="version-indicator">
+                Deploy: 1.0.0
+            </div>
         </html>
     );
 }
