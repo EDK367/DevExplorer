@@ -1,9 +1,11 @@
+'use client';
+
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from '../components/Card';
-import { MockTerminal } from '../components/MockTerminal';
+import { Card } from './Card';
+import { MockTerminal } from './MockTerminal';
 import { Database, Table, FileJson, Server, ShieldCheck, Network } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export const Databases = () => {
   const { t } = useTranslation();
@@ -38,7 +40,7 @@ export const Databases = () => {
 
       {activeTab === 'overview' && (
         <div className="grid md:grid-cols-2 gap-8 mb-16 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <Link to="/sql" className="group">
+          <Link href="/sql" className="group">
             <div className="bg-card hover:bg-accent/5 border border-border rounded-xl p-8 transition-all hover:scale-[1.02] hover:shadow-xl h-full">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-blue-500/10 rounded-lg">
@@ -63,7 +65,7 @@ export const Databases = () => {
             </div>
           </Link>
 
-          <Link to="/nosql" className="group">
+          <Link href="/nosql" className="group">
             <div className="bg-card hover:bg-accent/5 border border-border rounded-xl p-8 transition-all hover:scale-[1.02] hover:shadow-xl h-full">
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-4 bg-green-500/10 rounded-lg">

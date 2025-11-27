@@ -1,5 +1,10 @@
+'use client';
+
+'use client';
+
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import {
@@ -19,6 +24,7 @@ import {
 
 export const Sidebar = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
+  const pathname = usePathname();
 
   const navItems = [
     { path: '/', label: t('nav.home'), icon: Home },
@@ -51,17 +57,20 @@ export const Sidebar = ({ isOpen, onClose }) => {
         </div>
 
         <nav className="nav-menu">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-              onClick={onClose} // Close sidebar on navigation
-            >
-              <item.icon size={20} />
-              <span>{item.label}</span>
-            </NavLink>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`nav-item ${isActive ? 'active' : ''}`}
+                onClick={onClose}
+              >
+                <item.icon size={20} />
+                <span>{item.label}</span>
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="sidebar-footer">

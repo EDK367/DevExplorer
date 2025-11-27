@@ -1,16 +1,18 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Sidebar } from './Sidebar';
-import { Outlet, useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
-export const Layout = () => {
+export const Layout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   // Close menu when route changes
   React.useEffect(() => {
     setIsMobileMenuOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   return (
     <div className="app-layout">
@@ -30,7 +32,7 @@ export const Layout = () => {
 
       <main className="main-content">
         <div className="content-wrapper">
-          <Outlet />
+          {children}
         </div>
       </main>
       <style>{`

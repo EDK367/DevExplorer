@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, ChevronDown, ChevronRight, Play } from 'lucide-react';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 export const Card = ({ title, children, className = '', icon: Icon }) => {
